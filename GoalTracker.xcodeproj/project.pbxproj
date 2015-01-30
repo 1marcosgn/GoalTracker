@@ -15,6 +15,15 @@
 		538D37121A7AC20900EAD83D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538D37111A7AC20900EAD83D /* Images.xcassets */; };
 		538D37151A7AC20900EAD83D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D37131A7AC20900EAD83D /* LaunchScreen.xib */; };
 		538D37211A7AC20900EAD83D /* GoalTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 538D37201A7AC20900EAD83D /* GoalTrackerTests.m */; };
+		538D372D1A7AC5C200EAD83D /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538D372C1A7AC5C200EAD83D /* MainTableViewController.m */; };
+		538D37321A7AC78400EAD83D /* weekDaysCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 538D37301A7AC78400EAD83D /* weekDaysCell.m */; };
+		538D37331A7AC78400EAD83D /* weekDaysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D37311A7AC78400EAD83D /* weekDaysCell.xib */; };
+		538D37381A7AE62700EAD83D /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538D37361A7AE62700EAD83D /* DetailTableViewController.m */; };
+		538D37391A7AE62700EAD83D /* DetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D37371A7AE62700EAD83D /* DetailTableViewController.xib */; };
+		538D373D1A7AF33600EAD83D /* classCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 538D373B1A7AF33600EAD83D /* classCell.m */; };
+		538D373E1A7AF33600EAD83D /* classCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D373C1A7AF33600EAD83D /* classCell.xib */; };
+		538D37431A7B02B800EAD83D /* StadisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538D37411A7B02B800EAD83D /* StadisticsViewController.m */; };
+		538D37441A7B02B800EAD83D /* StadisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D37421A7B02B800EAD83D /* StadisticsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +51,20 @@
 		538D371A1A7AC20900EAD83D /* GoalTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoalTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		538D371F1A7AC20900EAD83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		538D37201A7AC20900EAD83D /* GoalTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoalTrackerTests.m; sourceTree = "<group>"; };
+		538D372B1A7AC5C200EAD83D /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		538D372C1A7AC5C200EAD83D /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		538D372F1A7AC78400EAD83D /* weekDaysCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weekDaysCell.h; sourceTree = "<group>"; };
+		538D37301A7AC78400EAD83D /* weekDaysCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weekDaysCell.m; sourceTree = "<group>"; };
+		538D37311A7AC78400EAD83D /* weekDaysCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = weekDaysCell.xib; sourceTree = "<group>"; };
+		538D37351A7AE62700EAD83D /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
+		538D37361A7AE62700EAD83D /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
+		538D37371A7AE62700EAD83D /* DetailTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewController.xib; sourceTree = "<group>"; };
+		538D373A1A7AF33600EAD83D /* classCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = classCell.h; sourceTree = "<group>"; };
+		538D373B1A7AF33600EAD83D /* classCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = classCell.m; sourceTree = "<group>"; };
+		538D373C1A7AF33600EAD83D /* classCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = classCell.xib; sourceTree = "<group>"; };
+		538D37401A7B02B800EAD83D /* StadisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StadisticsViewController.h; sourceTree = "<group>"; };
+		538D37411A7B02B800EAD83D /* StadisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadisticsViewController.m; sourceTree = "<group>"; };
+		538D37421A7B02B800EAD83D /* StadisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StadisticsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +106,10 @@
 		538D37001A7AC20900EAD83D /* GoalTracker */ = {
 			isa = PBXGroup;
 			children = (
+				538D373F1A7B02A000EAD83D /* Stadistics */,
+				538D37341A7AE60A00EAD83D /* DetailDays */,
+				538D372E1A7AC72C00EAD83D /* CustomizeCells */,
+				538D372A1A7AC56B00EAD83D /* MainTable */,
 				538D37051A7AC20900EAD83D /* AppDelegate.h */,
 				538D37061A7AC20900EAD83D /* AppDelegate.m */,
 				538D370B1A7AC20900EAD83D /* ViewController.h */,
@@ -120,6 +147,48 @@
 				538D371F1A7AC20900EAD83D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		538D372A1A7AC56B00EAD83D /* MainTable */ = {
+			isa = PBXGroup;
+			children = (
+				538D372B1A7AC5C200EAD83D /* MainTableViewController.h */,
+				538D372C1A7AC5C200EAD83D /* MainTableViewController.m */,
+			);
+			name = MainTable;
+			sourceTree = "<group>";
+		};
+		538D372E1A7AC72C00EAD83D /* CustomizeCells */ = {
+			isa = PBXGroup;
+			children = (
+				538D372F1A7AC78400EAD83D /* weekDaysCell.h */,
+				538D37301A7AC78400EAD83D /* weekDaysCell.m */,
+				538D37311A7AC78400EAD83D /* weekDaysCell.xib */,
+				538D373A1A7AF33600EAD83D /* classCell.h */,
+				538D373B1A7AF33600EAD83D /* classCell.m */,
+				538D373C1A7AF33600EAD83D /* classCell.xib */,
+			);
+			name = CustomizeCells;
+			sourceTree = "<group>";
+		};
+		538D37341A7AE60A00EAD83D /* DetailDays */ = {
+			isa = PBXGroup;
+			children = (
+				538D37351A7AE62700EAD83D /* DetailTableViewController.h */,
+				538D37361A7AE62700EAD83D /* DetailTableViewController.m */,
+				538D37371A7AE62700EAD83D /* DetailTableViewController.xib */,
+			);
+			name = DetailDays;
+			sourceTree = "<group>";
+		};
+		538D373F1A7B02A000EAD83D /* Stadistics */ = {
+			isa = PBXGroup;
+			children = (
+				538D37401A7B02B800EAD83D /* StadisticsViewController.h */,
+				538D37411A7B02B800EAD83D /* StadisticsViewController.m */,
+				538D37421A7B02B800EAD83D /* StadisticsViewController.xib */,
+			);
+			name = Stadistics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,8 +271,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538D373E1A7AF33600EAD83D /* classCell.xib in Resources */,
 				538D37101A7AC20900EAD83D /* Main.storyboard in Resources */,
 				538D37151A7AC20900EAD83D /* LaunchScreen.xib in Resources */,
+				538D37331A7AC78400EAD83D /* weekDaysCell.xib in Resources */,
+				538D37441A7B02B800EAD83D /* StadisticsViewController.xib in Resources */,
+				538D37391A7AE62700EAD83D /* DetailTableViewController.xib in Resources */,
 				538D37121A7AC20900EAD83D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +296,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				538D37071A7AC20900EAD83D /* AppDelegate.m in Sources */,
+				538D37431A7B02B800EAD83D /* StadisticsViewController.m in Sources */,
 				538D370A1A7AC20900EAD83D /* GoalTracker.xcdatamodeld in Sources */,
+				538D37381A7AE62700EAD83D /* DetailTableViewController.m in Sources */,
 				538D370D1A7AC20900EAD83D /* ViewController.m in Sources */,
+				538D373D1A7AF33600EAD83D /* classCell.m in Sources */,
+				538D372D1A7AC5C200EAD83D /* MainTableViewController.m in Sources */,
+				538D37321A7AC78400EAD83D /* weekDaysCell.m in Sources */,
 				538D37041A7AC20900EAD83D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
