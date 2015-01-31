@@ -46,8 +46,15 @@
 -(void)goToStadistics{
     
     
-    StadisticsViewController *stadisticsView = [[StadisticsViewController alloc]init];
-    [self presentViewController:stadisticsView animated:YES completion:nil];
+    //StadisticsViewController *stadisticsView = [[StadisticsViewController alloc]init];
+    //[self presentViewController:stadisticsView animated:YES completion:nil];
+    
+    StadisticsViewController *stadisticsView = [[StadisticsViewController alloc]initWithNibName:@"StadisticsViewController" bundle:nil];
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:stadisticsView];
+    
+    [self presentViewController:navController animated:YES completion:nil];
+    
     
     
 }
@@ -119,7 +126,7 @@
 
     //This information depends of the day of the week...
     detailViewController.arrClasses = [[NSMutableArray alloc]initWithObjects:@"Boxing", @"Kickboxing", nil];
-    detailViewController.nameDay = @"Sunday";
+    detailViewController.nameDay = [arrTemporal objectAtIndex:indexPath.row];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
     

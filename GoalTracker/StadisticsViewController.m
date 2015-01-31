@@ -16,7 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    [self setViewItems];
+    
+}
+
+-(void)setViewItems{
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:18], NSFontAttributeName, [UIColor blackColor], NSForegroundColorAttributeName, nil];
+    
+    [cancelButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    
+}
+
+-(void)dismiss{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
