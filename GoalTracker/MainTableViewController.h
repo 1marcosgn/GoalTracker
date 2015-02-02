@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainTableViewController : UITableViewController
+@interface MainTableViewController : UITableViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
+
+@property (nonatomic, retain) NSMutableData *dataResponse;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 @end

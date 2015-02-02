@@ -24,6 +24,8 @@
 		538D373E1A7AF33600EAD83D /* classCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D373C1A7AF33600EAD83D /* classCell.xib */; };
 		538D37431A7B02B800EAD83D /* StadisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538D37411A7B02B800EAD83D /* StadisticsViewController.m */; };
 		538D37441A7B02B800EAD83D /* StadisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D37421A7B02B800EAD83D /* StadisticsViewController.xib */; };
+		7FE009291A7DABB50057BF0A /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE009271A7DABB50057BF0A /* BlockViewController.m */; };
+		7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FE009281A7DABB50057BF0A /* BlockViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,9 @@
 		538D37401A7B02B800EAD83D /* StadisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StadisticsViewController.h; sourceTree = "<group>"; };
 		538D37411A7B02B800EAD83D /* StadisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadisticsViewController.m; sourceTree = "<group>"; };
 		538D37421A7B02B800EAD83D /* StadisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StadisticsViewController.xib; sourceTree = "<group>"; };
+		7FE009261A7DABB50057BF0A /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
+		7FE009271A7DABB50057BF0A /* BlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockViewController.m; sourceTree = "<group>"; };
+		7FE009281A7DABB50057BF0A /* BlockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,9 @@
 				538D37131A7AC20900EAD83D /* LaunchScreen.xib */,
 				538D37081A7AC20900EAD83D /* GoalTracker.xcdatamodeld */,
 				538D37011A7AC20900EAD83D /* Supporting Files */,
+				7FE009261A7DABB50057BF0A /* BlockViewController.h */,
+				7FE009271A7DABB50057BF0A /* BlockViewController.m */,
+				7FE009281A7DABB50057BF0A /* BlockViewController.xib */,
 			);
 			path = GoalTracker;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 			files = (
 				538D373E1A7AF33600EAD83D /* classCell.xib in Resources */,
 				538D37101A7AC20900EAD83D /* Main.storyboard in Resources */,
+				7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */,
 				538D37151A7AC20900EAD83D /* LaunchScreen.xib in Resources */,
 				538D37331A7AC78400EAD83D /* weekDaysCell.xib in Resources */,
 				538D37441A7B02B800EAD83D /* StadisticsViewController.xib in Resources */,
@@ -303,6 +312,7 @@
 				538D373D1A7AF33600EAD83D /* classCell.m in Sources */,
 				538D372D1A7AC5C200EAD83D /* MainTableViewController.m in Sources */,
 				538D37321A7AC78400EAD83D /* weekDaysCell.m in Sources */,
+				7FE009291A7DABB50057BF0A /* BlockViewController.m in Sources */,
 				538D37041A7AC20900EAD83D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +504,7 @@
 				538D37261A7AC20900EAD83D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		538D37271A7AC20900EAD83D /* Build configuration list for PBXNativeTarget "GoalTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +513,7 @@
 				538D37291A7AC20900EAD83D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

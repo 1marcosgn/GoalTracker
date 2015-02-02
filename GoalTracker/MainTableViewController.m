@@ -10,10 +10,13 @@
 #import "weekDaysCell.h"
 #import "DetailTableViewController.h"
 #import "StadisticsViewController.h"
+#import "BlockViewController.h"
 
 @interface MainTableViewController (){
     
     NSMutableArray *arrTemporal;
+    UIView *blockView;
+    NSMutableArray *arrWeekDays;
     
 }
 
@@ -23,7 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    arrTemporal = [[NSMutableArray alloc]init];
+    arrWeekDays = [[NSMutableArray alloc] initWithObjects:@"sunday", @"monday", @"tuesday", @"wednesday", @"thursday", @"friday", @"saturday", nil];
+    
+    
+    
+    [self connectToService];
+    
     [self setViewItems];
     
 }
@@ -37,11 +47,40 @@
     self.navigationItem.rightBarButtonItem = editButton;
         
     
-    arrTemporal = [[NSMutableArray alloc]initWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",nil];
+    //arrTemporal = [[NSMutableArray alloc]initWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",nil];
+    
+    
+    
+    
     
     [self.tableView registerNib:[UINib nibWithNibName:@"weekDaysCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"weekday"];
     
 }
+
+-(void)presentLoadView{
+    
+    self.activity = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    blockView = [[UIView alloc]initWithFrame:CGRectMake(109, 224, 152, 152)];
+    [blockView setBackgroundColor:[UIColor blackColor]];
+    [blockView.layer setCornerRadius:8.0];
+    [blockView.layer setMasksToBounds:YES];
+    [self.activity startAnimating];
+    self.activity.frame = CGRectMake(56, 56, self.activity.frame.size.width, self.activity.frame.size.height);
+    [blockView addSubview:self.activity];
+    [self.view addSubview:blockView];
+    
+}
+
+-(void)removeLoadView{
+    
+    [blockView removeFromSuperview];
+    [self.activity stopAnimating];
+    
+}
+
+
+
+
 
 -(void)goToStadistics{
     
@@ -79,13 +118,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    
+    //NSLog(@"%@", [arrTemporal objectAtIndex:[indexPath row]]);
+    //NSLog(@"%@", [[arrTemporal objectAtIndex:0]valueForKey:@"close_time"]);
+    
+    NSLog(@"%@", arrTemporal);
+    
+    /*
+    NSMutableArray *arrElements = [[NSMutableArray alloc]initWithCapacity:7];
+    
+    for (id element in arrTemporal) {
+        
+        NSLog(@"%@", element);
+        NSLog(@"%@", [element objectForKey:@"a"]);
+        
+        if ([element objectForKey:@"a"] != nil) {
+            <#statements#>
+        }
+        
+    }
+    */
+    
+    NSMutableDictionary *diccElements = [NSMutableDictionary dictionary];
+    
+    diccElements = [[arrTemporal objectAtIndex:0]objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    
     UITableViewCell *cell;
     
     // Configure the cell...
     weekDaysCell *theCell = (weekDaysCell *) [tableView dequeueReusableCellWithIdentifier:@"weekday" forIndexPath:indexPath];
     
-    theCell.lblDayName.text = [arrTemporal objectAtIndex:indexPath.row];
-    theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld", indexPath.row + 1];
+    //theCell.lblDayName.text = [arrTemporal objectAtIndex:indexPath.row];
+    //theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld", indexPath.row + 1];
     
     //Cell color
     if (indexPath.row + 1 == [self getNumberofWeek]) {
@@ -156,6 +220,70 @@
     
     //return [WeekdayNumber intValue];
 }
+
+
+-(void)connectToService{
+    
+    NSURL *url = [NSURL URLWithString:@"http://myfumbles.com/goaltracker/ufc_json_test.json"];
+    NSURLRequest *req = [[NSURLRequest alloc]initWithURL:url];
+    NSURLConnection *cnn = [[NSURLConnection alloc]initWithRequest:req delegate:self];
+    
+    [self presentLoadView];
+    
+    if (cnn) {
+        //do something with self.data
+        self.dataResponse = [NSMutableData data];
+    }
+    
+}
+
+#pragma mark - Connection Delegates
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    
+    [self removeLoadView];
+    NSMutableDictionary *dictionaryContent = [NSMutableDictionary dictionary];
+    id JSON = [NSJSONSerialization JSONObjectWithData:self.dataResponse options:0 error:nil];
+    dictionaryContent = JSON;
+    
+    NSMutableArray *arrDays = [[NSMutableArray alloc]init];
+    NSMutableDictionary *tmpDictionay = [NSMutableDictionary dictionary];
+    
+    for (id object in dictionaryContent) {
+        NSMutableDictionary *diccHelp = [NSMutableDictionary dictionary];
+        diccHelp = [dictionaryContent objectForKey:object];
+        
+        [tmpDictionay setValue:object forKey:@"day"];
+        [tmpDictionay setValue:[diccHelp objectForKey:@"open_time"] forKey:@"open_time"];
+        [tmpDictionay setValue:[diccHelp objectForKey:@"close_time"] forKey:@"close_time"];
+        
+        NSMutableDictionary *dicctExtra = [NSMutableDictionary dictionary];
+        
+        [dicctExtra setObject:[tmpDictionay mutableCopy] forKey:[diccHelp objectForKey:@"day_name"]];
+        [arrDays addObject:[dicctExtra mutableCopy]];
+        [tmpDictionay removeAllObjects];
+        [dicctExtra removeAllObjects];
+        
+    }
+    
+    arrTemporal = [arrDays mutableCopy];
+    [self.tableView reloadData];
+    
+
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    [self.dataResponse setLength:0];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [self.dataResponse appendData:data];
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    [self removeLoadView];
+    NSLog(@"some troubles here...");
+}
+
 
 /*
 // Override to support conditional editing of the table view.
