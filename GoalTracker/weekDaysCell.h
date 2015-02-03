@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblDayName;
 @property (weak, nonatomic) IBOutlet UILabel *lblDayNumber;
+@property (weak, nonatomic) IBOutlet UILabel *lblSchedule;
 
 
 @end

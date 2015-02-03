@@ -67,22 +67,15 @@
     
     classCell *cell = (classCell *) [tableView dequeueReusableCellWithIdentifier:@"cellClass" forIndexPath:indexPath];
     
-    // Configure the cell...
-    if (self.dayIdentifier == 1) {//Sunday
-        
-        cell.className.text = [self.arrClasses objectAtIndex:indexPath.row];
-        cell.completedTag.text = [self.activitiesCompletedModel objectAtIndex:indexPath.row];
-        
-    }
-    else if (self.dayIdentifier == 2){//Monday
-        
-    }
-    //...
-    //..
-    //.
-    else if (self.dayIdentifier == 7){//Saturday
-        
-    }
+    
+    NSMutableDictionary *diccTmpClass = [NSMutableDictionary dictionary];
+    
+    diccTmpClass = [self.arrClasses objectAtIndex:[indexPath row]];
+    
+    cell.className.text = [diccTmpClass valueForKey:@"class_name"];
+    cell.completedTag.text = [self.activitiesCompletedModel objectAtIndex:indexPath.row];
+    cell.classSchedule.text = [diccTmpClass valueForKey:@"class_schedule"];
+
     return cell;
 }
 
