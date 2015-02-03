@@ -18,6 +18,8 @@
     UIView *blockView;
     NSMutableArray *arrWeekDays;
     
+    
+    NSMutableArray *arrDayElements;
 }
 
 @end
@@ -30,8 +32,6 @@
     arrTemporal = [[NSMutableArray alloc]init];
     arrWeekDays = [[NSMutableArray alloc] initWithObjects:@"sunday", @"monday", @"tuesday", @"wednesday", @"thursday", @"friday", @"saturday", nil];
     
-    
-    
     [self connectToService];
     
     [self setViewItems];
@@ -40,19 +40,8 @@
 
 -(void)setViewItems{
     
-    
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Stads" style:UIBarButtonItemStylePlain target:self action:@selector(goToStadistics)];
-    
-
     self.navigationItem.rightBarButtonItem = editButton;
-        
-    
-    //arrTemporal = [[NSMutableArray alloc]initWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",nil];
-    
-    
-    
-    
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"weekDaysCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"weekday"];
     
 }
@@ -112,44 +101,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [arrTemporal count];
+    //return [arrTemporal count];
+    return [arrDayElements count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    //NSLog(@"%@", [arrTemporal objectAtIndex:[indexPath row]]);
-    //NSLog(@"%@", [[arrTemporal objectAtIndex:0]valueForKey:@"close_time"]);
-    
-    NSLog(@"%@", arrTemporal);
-    
-    /*
-    NSMutableArray *arrElements = [[NSMutableArray alloc]initWithCapacity:7];
-    
-    for (id element in arrTemporal) {
-        
-        NSLog(@"%@", element);
-        NSLog(@"%@", [element objectForKey:@"a"]);
-        
-        if ([element objectForKey:@"a"] != nil) {
-            <#statements#>
-        }
-        
-    }
-    */
-    
-    NSMutableDictionary *diccElements = [NSMutableDictionary dictionary];
-    
-    diccElements = [[arrTemporal objectAtIndex:0]objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-    
-    UITableViewCell *cell;
+    NSMutableDictionary *dictionaryTemporal = [NSMutableDictionary dictionary];
+    dictionaryTemporal = [arrDayElements objectAtIndex:[indexPath row]];
     
     // Configure the cell...
+    UITableViewCell *cell;
     weekDaysCell *theCell = (weekDaysCell *) [tableView dequeueReusableCellWithIdentifier:@"weekday" forIndexPath:indexPath];
     
-    //theCell.lblDayName.text = [arrTemporal objectAtIndex:indexPath.row];
-    //theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld", indexPath.row + 1];
+    theCell.lblDayName.text = [dictionaryTemporal valueForKey:@"day_name"]; // <-- Localize this string
+    theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld", indexPath.row + 1];
+    theCell.lblSchedule.text = [NSString stringWithFormat:@"Open from %@ to %@", [dictionaryTemporal valueForKey:@"open_time"], [dictionaryTemporal valueForKey:@"close_time"]];
     
     //Cell color
     if (indexPath.row + 1 == [self getNumberofWeek]) {
@@ -164,9 +132,7 @@
         [theCell setBackgroundColor:[UIColor orangeColor]];
     }
     
-    
     cell = theCell;
-    
     return cell;
 }
 
@@ -185,12 +151,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSMutableDictionary *dictionaryTemporal = [NSMutableDictionary dictionary];
+    dictionaryTemporal = [arrDayElements objectAtIndex:[indexPath row]];
+    
     DetailTableViewController *detailViewController = [[DetailTableViewController alloc]init];
     detailViewController.dayIdentifier = (int)indexPath.row + 1;
-
-    //This information depends of the day of the week...
-    detailViewController.arrClasses = [[NSMutableArray alloc]initWithObjects:@"Boxing", @"Kickboxing", nil];
-    detailViewController.nameDay = [arrTemporal objectAtIndex:indexPath.row];
+    
+    NSMutableArray *arrClassTmp = [dictionaryTemporal objectForKey:@"classes"];
+    detailViewController.arrClasses = [[NSMutableArray alloc]initWithArray:arrClassTmp];
+    detailViewController.nameDay = [dictionaryTemporal valueForKey:@"day_name"];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
     
@@ -212,13 +181,7 @@
     NSInteger weekday = [comps weekday];
     
     return (int)weekday;
-    
-    
-    //CFAbsoluteTime at = CFAbsoluteTimeGetCurrent();
-    //CFTimeZoneRef tz = CFTimeZoneCopySystem();
-    //SInt32 WeekdayNumber = CFAbsoluteTimeGetDayOfWeek(at, tz);
-    
-    //return [WeekdayNumber intValue];
+
 }
 
 
@@ -244,6 +207,17 @@
     NSMutableDictionary *dictionaryContent = [NSMutableDictionary dictionary];
     id JSON = [NSJSONSerialization JSONObjectWithData:self.dataResponse options:0 error:nil];
     dictionaryContent = JSON;
+    
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    arrDayElements = [[NSMutableArray alloc]initWithCapacity:7];
+    [arrDayElements insertObject:[dictionaryContent objectForKey:@"sunday"] atIndex:0];
+    [arrDayElements insertObject:[dictionaryContent objectForKey:@"monday"] atIndex:1];
+    [arrDayElements insertObject:[dictionaryContent objectForKey:@"tuesday"] atIndex:2];
+    [arrDayElements insertObject:[dictionaryContent objectForKey:@"wednesday"] atIndex:3];
+    [arrDayElements insertObject:[dictionaryContent objectForKey:@"thursday"] atIndex:4];
+    [arrDayElements insertObject:[dictionaryContent objectForKey:@"friday"] atIndex:5];
+    [arrDayElements insertObject:[dictionaryContent objectForKey:@"saturday"] atIndex:6];
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     
     NSMutableArray *arrDays = [[NSMutableArray alloc]init];
     NSMutableDictionary *tmpDictionay = [NSMutableDictionary dictionary];

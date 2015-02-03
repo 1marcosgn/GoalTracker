@@ -53,8 +53,9 @@
             <connections>
                 <outlet property="lblDayName" destination="VEf-QQ-Cyj" id="4TL-Bo-uvc"/>
                 <outlet property="lblDayNumber" destination="ioQ-sN-qe5" id="Kev-kR-RSf"/>
+                <outlet property="lblSchedule" destination="uYw-ht-9vB" id="KsT-Yg-Pz5"/>
             </connections>
-            <point key="canvasLocation" x="457" y="506"/>
+            <point key="canvasLocation" x="529" y="488"/>
         </tableViewCell>
     </objects>
 </document>
