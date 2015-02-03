@@ -24,6 +24,14 @@
 		538D373E1A7AF33600EAD83D /* classCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D373C1A7AF33600EAD83D /* classCell.xib */; };
 		538D37431A7B02B800EAD83D /* StadisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538D37411A7B02B800EAD83D /* StadisticsViewController.m */; };
 		538D37441A7B02B800EAD83D /* StadisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538D37421A7B02B800EAD83D /* StadisticsViewController.xib */; };
+		7F438FA01A80A467004959EE /* timeburner_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438F9F1A80A467004959EE /* timeburner_regular.ttf */; };
+		7F438FA61A80AB8D004959EE /* Fmcoinout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FA11A80AA0C004959EE /* Fmcoinout.ttf */; };
+		7F438FA71A80AB8D004959EE /* Fmcot.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FA21A80AA0C004959EE /* Fmcot.ttf */; };
+		7F438FA81A80AB8D004959EE /* New Athletic M54.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FA51A80AA24004959EE /* New Athletic M54.ttf */; };
+		7F438FA91A80AB8D004959EE /* Fmcout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FA31A80AA0C004959EE /* Fmcout.ttf */; };
+		7F438FAA1A80AB8D004959EE /* Wagner Modern.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FA41A80AA1C004959EE /* Wagner Modern.ttf */; };
+		7F438FAC1A80AE6D004959EE /* Time Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FAB1A80AE5E004959EE /* Time Normal.ttf */; };
+		7F438FAF1A80BDE5004959EE /* currentClass.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FAE1A80BDE5004959EE /* currentClass.png */; };
 		7FE009291A7DABB50057BF0A /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE009271A7DABB50057BF0A /* BlockViewController.m */; };
 		7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FE009281A7DABB50057BF0A /* BlockViewController.xib */; };
 /* End PBXBuildFile section */
@@ -67,6 +75,14 @@
 		538D37401A7B02B800EAD83D /* StadisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StadisticsViewController.h; sourceTree = "<group>"; };
 		538D37411A7B02B800EAD83D /* StadisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadisticsViewController.m; sourceTree = "<group>"; };
 		538D37421A7B02B800EAD83D /* StadisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StadisticsViewController.xib; sourceTree = "<group>"; };
+		7F438F9F1A80A467004959EE /* timeburner_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = timeburner_regular.ttf; sourceTree = "<group>"; };
+		7F438FA11A80AA0C004959EE /* Fmcoinout.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fmcoinout.ttf; sourceTree = "<group>"; };
+		7F438FA21A80AA0C004959EE /* Fmcot.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fmcot.ttf; sourceTree = "<group>"; };
+		7F438FA31A80AA0C004959EE /* Fmcout.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fmcout.ttf; sourceTree = "<group>"; };
+		7F438FA41A80AA1C004959EE /* Wagner Modern.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wagner Modern.ttf"; sourceTree = "<group>"; };
+		7F438FA51A80AA24004959EE /* New Athletic M54.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "New Athletic M54.ttf"; sourceTree = "<group>"; };
+		7F438FAB1A80AE5E004959EE /* Time Normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Time Normal.ttf"; sourceTree = "<group>"; };
+		7F438FAE1A80BDE5004959EE /* currentClass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentClass.png; sourceTree = "<group>"; };
 		7FE009261A7DABB50057BF0A /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
 		7FE009271A7DABB50057BF0A /* BlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockViewController.m; sourceTree = "<group>"; };
 		7FE009281A7DABB50057BF0A /* BlockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockViewController.xib; sourceTree = "<group>"; };
@@ -111,6 +127,8 @@
 		538D37001A7AC20900EAD83D /* GoalTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7F438FAD1A80BDD6004959EE /* images */,
+				7F438F9E1A80A454004959EE /* Resources */,
 				538D373F1A7B02A000EAD83D /* Stadistics */,
 				538D37341A7AE60A00EAD83D /* DetailDays */,
 				538D372E1A7AC72C00EAD83D /* CustomizeCells */,
@@ -199,6 +217,28 @@
 			name = Stadistics;
 			sourceTree = "<group>";
 		};
+		7F438F9E1A80A454004959EE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F438F9F1A80A467004959EE /* timeburner_regular.ttf */,
+				7F438FAB1A80AE5E004959EE /* Time Normal.ttf */,
+				7F438FA11A80AA0C004959EE /* Fmcoinout.ttf */,
+				7F438FA21A80AA0C004959EE /* Fmcot.ttf */,
+				7F438FA51A80AA24004959EE /* New Athletic M54.ttf */,
+				7F438FA31A80AA0C004959EE /* Fmcout.ttf */,
+				7F438FA41A80AA1C004959EE /* Wagner Modern.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7F438FAD1A80BDD6004959EE /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7F438FAE1A80BDE5004959EE /* currentClass.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,11 +319,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F438FAC1A80AE6D004959EE /* Time Normal.ttf in Resources */,
+				7F438FA61A80AB8D004959EE /* Fmcoinout.ttf in Resources */,
+				7F438FA71A80AB8D004959EE /* Fmcot.ttf in Resources */,
+				7F438FA81A80AB8D004959EE /* New Athletic M54.ttf in Resources */,
+				7F438FA91A80AB8D004959EE /* Fmcout.ttf in Resources */,
+				7F438FAA1A80AB8D004959EE /* Wagner Modern.ttf in Resources */,
 				538D373E1A7AF33600EAD83D /* classCell.xib in Resources */,
+				7F438FA01A80A467004959EE /* timeburner_regular.ttf in Resources */,
 				538D37101A7AC20900EAD83D /* Main.storyboard in Resources */,
 				7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */,
 				538D37151A7AC20900EAD83D /* LaunchScreen.xib in Resources */,
 				538D37331A7AC78400EAD83D /* weekDaysCell.xib in Resources */,
+				7F438FAF1A80BDE5004959EE /* currentClass.png in Resources */,
 				538D37441A7B02B800EAD83D /* StadisticsViewController.xib in Resources */,
 				538D37391A7AE62700EAD83D /* DetailTableViewController.xib in Resources */,
 				538D37121A7AC20900EAD83D /* Images.xcassets in Resources */,
