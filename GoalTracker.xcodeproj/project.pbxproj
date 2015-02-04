@@ -32,6 +32,7 @@
 		7F438FAA1A80AB8D004959EE /* Wagner Modern.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FA41A80AA1C004959EE /* Wagner Modern.ttf */; };
 		7F438FAC1A80AE6D004959EE /* Time Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FAB1A80AE5E004959EE /* Time Normal.ttf */; };
 		7F438FAF1A80BDE5004959EE /* currentClass.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FAE1A80BDE5004959EE /* currentClass.png */; };
+		7F438FB11A81FD5D004959EE /* failGloves.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FB01A81FD5D004959EE /* failGloves.png */; };
 		7FE009291A7DABB50057BF0A /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE009271A7DABB50057BF0A /* BlockViewController.m */; };
 		7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FE009281A7DABB50057BF0A /* BlockViewController.xib */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		7F438FA51A80AA24004959EE /* New Athletic M54.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "New Athletic M54.ttf"; sourceTree = "<group>"; };
 		7F438FAB1A80AE5E004959EE /* Time Normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Time Normal.ttf"; sourceTree = "<group>"; };
 		7F438FAE1A80BDE5004959EE /* currentClass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentClass.png; sourceTree = "<group>"; };
+		7F438FB01A81FD5D004959EE /* failGloves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failGloves.png; sourceTree = "<group>"; };
 		7FE009261A7DABB50057BF0A /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
 		7FE009271A7DABB50057BF0A /* BlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockViewController.m; sourceTree = "<group>"; };
 		7FE009281A7DABB50057BF0A /* BlockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockViewController.xib; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				7F438FAE1A80BDE5004959EE /* currentClass.png */,
+				7F438FB01A81FD5D004959EE /* failGloves.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */,
 				538D37151A7AC20900EAD83D /* LaunchScreen.xib in Resources */,
 				538D37331A7AC78400EAD83D /* weekDaysCell.xib in Resources */,
+				7F438FB11A81FD5D004959EE /* failGloves.png in Resources */,
 				7F438FAF1A80BDE5004959EE /* currentClass.png in Resources */,
 				538D37441A7B02B800EAD83D /* StadisticsViewController.xib in Resources */,
 				538D37391A7AE62700EAD83D /* DetailTableViewController.xib in Resources */,

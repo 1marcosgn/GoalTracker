@@ -74,6 +74,7 @@
                 <outlet property="className" destination="U3U-7h-gRH" id="Jb0-8Q-ONt"/>
                 <outlet property="classSchedule" destination="Jz1-Eq-mbx" id="FQ9-ah-07t"/>
                 <outlet property="completedTag" destination="thB-Rp-sUf" id="NIr-Th-IjK"/>
+                <outlet property="imgCellIcon" destination="hhV-Oz-vwl" id="FGN-s3-on6"/>
             </connections>
             <point key="canvasLocation" x="357" y="437.5"/>
         </tableViewCell>
