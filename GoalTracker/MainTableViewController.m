@@ -137,20 +137,28 @@
     weekDaysCell *theCell = (weekDaysCell *) [tableView dequeueReusableCellWithIdentifier:@"weekday" forIndexPath:indexPath];
     
     theCell.lblDayName.text = [dictionaryTemporal valueForKey:@"day_name"]; // <-- Localize this string
-    theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld", indexPath.row + 1];
+    //theCell.lblDayName.textColor = [UIColor whiteColor];
+    
+    theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld.", indexPath.row + 1];
+    
+    theCell.lblDayNumber.layer.cornerRadius = 2.0;
+    theCell.lblDayNumber.layer.masksToBounds = YES;
+    
     theCell.lblSchedule.text = [NSString stringWithFormat:@"Open from %@ to %@", [dictionaryTemporal valueForKey:@"open_time"], [dictionaryTemporal valueForKey:@"close_time"]];
+    
     
     //Cell color
     if (indexPath.row + 1 == [self getNumberofWeek]) {
-        
-        [theCell setBackgroundColor:[UIColor yellowColor]];
-        
+        //[theCell setBackgroundColor:[UIColor colorWithRed:240.0f/256.0f green:178.0f/256.0 blue:14.0f/256.0f alpha:1.0]];
+        [theCell.imgOctagon setImage:[UIImage imageNamed:@"yellowOctagon.png"]];
     }
     else if (indexPath.row + 1 < [self getNumberofWeek]){
-        [theCell setBackgroundColor:[UIColor redColor]];
+        //[theCell setBackgroundColor:[UIColor redColor]];
+        [theCell.imgOctagon setImage:[UIImage imageNamed:@"redOctagon.png"]];
     }
     else{
-        [theCell setBackgroundColor:[UIColor orangeColor]];
+        //[theCell setBackgroundColor:[UIColor orangeColor]];
+        [theCell.imgOctagon setImage:[UIImage imageNamed:@"orangeOctagon.png"]];
     }
     
     cell = theCell;
@@ -195,7 +203,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 134.0;
+    return 181.0;
     
 }
 
@@ -214,19 +222,80 @@
 
 -(void)connectToService{
     
+    BlockViewController *connection = [[BlockViewController alloc]init];
+    [connection setDelegate:self];
+    [self.view insertSubview:connection.view atIndex:[[self.view subviews]count]];
+    [connection start];
+    
+    
+    
     NSURL *url = [NSURL URLWithString:@"http://myfumbles.com/goaltracker/ufc_json_test.json"];
     NSURLRequest *req = [[NSURLRequest alloc]initWithURL:url];
-    NSURLConnection *cnn = [[NSURLConnection alloc]initWithRequest:req delegate:self];
+    [connection connect:[req mutableCopy]];
     
+    
+    
+    
+    /*
+    NSURLConnection *cnn = [[NSURLConnection alloc]initWithRequest:req delegate:self];
     [self presentLoadView];
     
     if (cnn) {
         //do something with self.data
         self.dataResponse = [NSMutableData data];
     }
-    
+    */
 }
 
+#pragma mark - Connection Delegates
+-(void)connectionFinish:(NSDictionary *)JSONObject succes:(BOOL)success serviceName:(NSString *)name{
+    
+    if ([JSONObject count] == 0 || success == NO) {
+        
+        [self someTroubles];
+        
+    }
+    else{
+        
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        arrDayElements = [[NSMutableArray alloc]initWithCapacity:7];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"sunday"] atIndex:0];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"monday"] atIndex:1];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"tuesday"] atIndex:2];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"wednesday"] atIndex:3];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"thursday"] atIndex:4];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"friday"] atIndex:5];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"saturday"] atIndex:6];
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        
+        NSMutableArray *arrDays = [[NSMutableArray alloc]init];
+        NSMutableDictionary *tmpDictionay = [NSMutableDictionary dictionary];
+        
+        for (id object in JSONObject) {
+            NSMutableDictionary *diccHelp = [NSMutableDictionary dictionary];
+            diccHelp = [JSONObject objectForKey:object];
+            
+            [tmpDictionay setValue:object forKey:@"day"];
+            [tmpDictionay setValue:[diccHelp objectForKey:@"open_time"] forKey:@"open_time"];
+            [tmpDictionay setValue:[diccHelp objectForKey:@"close_time"] forKey:@"close_time"];
+            
+            NSMutableDictionary *dicctExtra = [NSMutableDictionary dictionary];
+            
+            [dicctExtra setObject:[tmpDictionay mutableCopy] forKey:[diccHelp objectForKey:@"day_name"]];
+            [arrDays addObject:[dicctExtra mutableCopy]];
+            [tmpDictionay removeAllObjects];
+            [dicctExtra removeAllObjects];
+            
+        }
+        
+        arrTemporal = [arrDays mutableCopy];
+        [self.tableView reloadData];
+        
+        
+    }
+}
+
+/*
 #pragma mark - Connection Delegates
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     
@@ -279,10 +348,6 @@
         
         
     }
-    
-    
-    
-    
 
 }
 
@@ -300,11 +365,8 @@
     
     
     [self someTroubles];
-    
-    
-    
 }
-
+*/
 
 -(void)someTroubles{
     
