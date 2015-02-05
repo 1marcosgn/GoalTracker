@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BlockViewController.h"
 
-@interface MainTableViewController : UITableViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
+//@interface MainTableViewController : UITableViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
+@interface MainTableViewController : UITableViewController <ConnectionDelegate>
 
 @property (nonatomic, retain) NSMutableData *dataResponse;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;

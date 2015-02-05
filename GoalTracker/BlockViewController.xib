@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BlockViewController">
             <connections>
+                <outlet property="containerLoad" destination="i95-GS-0fO" id="ldk-aG-55e"/>
+                <outlet property="indicator" destination="MO9-52-fBE" id="T5A-5b-q8F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,22 +16,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i95-GS-0fO">
-                    <rect key="frame" x="224" y="224" width="152" height="152"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i95-GS-0fO">
+                    <rect key="frame" x="116" y="173" width="152" height="152"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MO9-52-fBE">
+                            <rect key="frame" x="58" y="57" width="37" height="37"/>
+                        </activityIndicatorView>
+                    </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="152" id="uV7-uc-5CO"/>
-                        <constraint firstAttribute="height" constant="152" id="zfy-yx-2oJ"/>
-                    </constraints>
                 </view>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MO9-52-fBE">
-                    <rect key="frame" x="282" y="282" width="37" height="37"/>
-                </activityIndicatorView>
             </subviews>
-            <constraints>
-                <constraint firstAttribute="centerX" secondItem="i95-GS-0fO" secondAttribute="centerX" id="FgQ-Iz-eUe"/>
-                <constraint firstAttribute="centerY" secondItem="i95-GS-0fO" secondAttribute="centerY" id="MMl-4g-asr"/>
-            </constraints>
+            <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
         </view>
     </objects>
 </document>

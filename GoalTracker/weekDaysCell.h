@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDayName;
 @property (weak, nonatomic) IBOutlet UILabel *lblDayNumber;
 @property (weak, nonatomic) IBOutlet UILabel *lblSchedule;
+@property (weak, nonatomic) IBOutlet UIImageView *imgOctagon;
 
 
 @end

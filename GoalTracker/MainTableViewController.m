@@ -40,9 +40,30 @@
 
 -(void)setViewItems{
     
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Stads" style:UIBarButtonItemStylePlain target:self action:@selector(goToStadistics)];
+    CGRect frame = CGRectMake(0, 0, 70, 44);
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.text = @"WEEK SCHEDULE";
+    self.navigationItem.titleView = label;
+    
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    
+    //UIColor *topBarColor = [UIColor colorWithRed:217.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Stats" style:UIBarButtonItemStylePlain target:self action:@selector(goToStadistics)];
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    [editButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
     self.navigationItem.rightBarButtonItem = editButton;
     [self.tableView registerNib:[UINib nibWithNibName:@"weekDaysCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"weekday"];
+    
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
 }
 
@@ -116,20 +137,28 @@
     weekDaysCell *theCell = (weekDaysCell *) [tableView dequeueReusableCellWithIdentifier:@"weekday" forIndexPath:indexPath];
     
     theCell.lblDayName.text = [dictionaryTemporal valueForKey:@"day_name"]; // <-- Localize this string
-    theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld", indexPath.row + 1];
+    //theCell.lblDayName.textColor = [UIColor whiteColor];
+    
+    theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld.", indexPath.row + 1];
+    
+    theCell.lblDayNumber.layer.cornerRadius = 2.0;
+    theCell.lblDayNumber.layer.masksToBounds = YES;
+    
     theCell.lblSchedule.text = [NSString stringWithFormat:@"Open from %@ to %@", [dictionaryTemporal valueForKey:@"open_time"], [dictionaryTemporal valueForKey:@"close_time"]];
+    
     
     //Cell color
     if (indexPath.row + 1 == [self getNumberofWeek]) {
-        
-        [theCell setBackgroundColor:[UIColor yellowColor]];
-        
+        //[theCell setBackgroundColor:[UIColor colorWithRed:240.0f/256.0f green:178.0f/256.0 blue:14.0f/256.0f alpha:1.0]];
+        [theCell.imgOctagon setImage:[UIImage imageNamed:@"yellowOctagon.png"]];
     }
     else if (indexPath.row + 1 < [self getNumberofWeek]){
-        [theCell setBackgroundColor:[UIColor redColor]];
+        //[theCell setBackgroundColor:[UIColor redColor]];
+        [theCell.imgOctagon setImage:[UIImage imageNamed:@"redOctagon.png"]];
     }
     else{
-        [theCell setBackgroundColor:[UIColor orangeColor]];
+        //[theCell setBackgroundColor:[UIColor orangeColor]];
+        [theCell.imgOctagon setImage:[UIImage imageNamed:@"orangeOctagon.png"]];
     }
     
     cell = theCell;
@@ -139,14 +168,20 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
-    UILabel *lblDates = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 320, 30)];
+    UILabel *lblDates = [[UILabel alloc]initWithFrame:CGRectMake(18, 6, 320, 45)];
     [lblDates setTextAlignment:NSTextAlignmentCenter];
-    lblDates.text = @"01/28/2015 = 02/03/2015";
+    lblDates.text = @"  02/04/2015 - 02/10/2015";
     [lblDates setTextColor:[UIColor whiteColor]];
-    [headerView setBackgroundColor:[UIColor redColor]];
+    [lblDates setFont:[UIFont fontWithName:@"Wagner Modern" size:24.0]];
+    [headerView setBackgroundColor:[UIColor blackColor]];
+    //[headerView setBackgroundColor:[UIColor colorWithRed:217.0/256.0 green:44.0/256.0 blue:44.0/256.0 alpha:1.0]];
     [headerView addSubview:lblDates];
     
     return headerView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50.0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -168,7 +203,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 134.0;
+    return 181.0;
     
 }
 
@@ -187,19 +222,80 @@
 
 -(void)connectToService{
     
+    BlockViewController *connection = [[BlockViewController alloc]init];
+    [connection setDelegate:self];
+    [self.view insertSubview:connection.view atIndex:[[self.view subviews]count]];
+    [connection start];
+    
+    
+    
     NSURL *url = [NSURL URLWithString:@"http://myfumbles.com/goaltracker/ufc_json_test.json"];
     NSURLRequest *req = [[NSURLRequest alloc]initWithURL:url];
-    NSURLConnection *cnn = [[NSURLConnection alloc]initWithRequest:req delegate:self];
+    [connection connect:[req mutableCopy]];
     
+    
+    
+    
+    /*
+    NSURLConnection *cnn = [[NSURLConnection alloc]initWithRequest:req delegate:self];
     [self presentLoadView];
     
     if (cnn) {
         //do something with self.data
         self.dataResponse = [NSMutableData data];
     }
-    
+    */
 }
 
+#pragma mark - Connection Delegates
+-(void)connectionFinish:(NSDictionary *)JSONObject succes:(BOOL)success serviceName:(NSString *)name{
+    
+    if ([JSONObject count] == 0 || success == NO) {
+        
+        [self someTroubles];
+        
+    }
+    else{
+        
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        arrDayElements = [[NSMutableArray alloc]initWithCapacity:7];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"sunday"] atIndex:0];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"monday"] atIndex:1];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"tuesday"] atIndex:2];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"wednesday"] atIndex:3];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"thursday"] atIndex:4];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"friday"] atIndex:5];
+        [arrDayElements insertObject:[JSONObject objectForKey:@"saturday"] atIndex:6];
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        
+        NSMutableArray *arrDays = [[NSMutableArray alloc]init];
+        NSMutableDictionary *tmpDictionay = [NSMutableDictionary dictionary];
+        
+        for (id object in JSONObject) {
+            NSMutableDictionary *diccHelp = [NSMutableDictionary dictionary];
+            diccHelp = [JSONObject objectForKey:object];
+            
+            [tmpDictionay setValue:object forKey:@"day"];
+            [tmpDictionay setValue:[diccHelp objectForKey:@"open_time"] forKey:@"open_time"];
+            [tmpDictionay setValue:[diccHelp objectForKey:@"close_time"] forKey:@"close_time"];
+            
+            NSMutableDictionary *dicctExtra = [NSMutableDictionary dictionary];
+            
+            [dicctExtra setObject:[tmpDictionay mutableCopy] forKey:[diccHelp objectForKey:@"day_name"]];
+            [arrDays addObject:[dicctExtra mutableCopy]];
+            [tmpDictionay removeAllObjects];
+            [dicctExtra removeAllObjects];
+            
+        }
+        
+        arrTemporal = [arrDays mutableCopy];
+        [self.tableView reloadData];
+        
+        
+    }
+}
+
+/*
 #pragma mark - Connection Delegates
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     
@@ -208,40 +304,50 @@
     id JSON = [NSJSONSerialization JSONObjectWithData:self.dataResponse options:0 error:nil];
     dictionaryContent = JSON;
     
-    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    arrDayElements = [[NSMutableArray alloc]initWithCapacity:7];
-    [arrDayElements insertObject:[dictionaryContent objectForKey:@"sunday"] atIndex:0];
-    [arrDayElements insertObject:[dictionaryContent objectForKey:@"monday"] atIndex:1];
-    [arrDayElements insertObject:[dictionaryContent objectForKey:@"tuesday"] atIndex:2];
-    [arrDayElements insertObject:[dictionaryContent objectForKey:@"wednesday"] atIndex:3];
-    [arrDayElements insertObject:[dictionaryContent objectForKey:@"thursday"] atIndex:4];
-    [arrDayElements insertObject:[dictionaryContent objectForKey:@"friday"] atIndex:5];
-    [arrDayElements insertObject:[dictionaryContent objectForKey:@"saturday"] atIndex:6];
-    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     
-    NSMutableArray *arrDays = [[NSMutableArray alloc]init];
-    NSMutableDictionary *tmpDictionay = [NSMutableDictionary dictionary];
-    
-    for (id object in dictionaryContent) {
-        NSMutableDictionary *diccHelp = [NSMutableDictionary dictionary];
-        diccHelp = [dictionaryContent objectForKey:object];
+    if ([dictionaryContent count] == 0) {
         
-        [tmpDictionay setValue:object forKey:@"day"];
-        [tmpDictionay setValue:[diccHelp objectForKey:@"open_time"] forKey:@"open_time"];
-        [tmpDictionay setValue:[diccHelp objectForKey:@"close_time"] forKey:@"close_time"];
-        
-        NSMutableDictionary *dicctExtra = [NSMutableDictionary dictionary];
-        
-        [dicctExtra setObject:[tmpDictionay mutableCopy] forKey:[diccHelp objectForKey:@"day_name"]];
-        [arrDays addObject:[dicctExtra mutableCopy]];
-        [tmpDictionay removeAllObjects];
-        [dicctExtra removeAllObjects];
+        [self someTroubles];
         
     }
-    
-    arrTemporal = [arrDays mutableCopy];
-    [self.tableView reloadData];
-    
+    else{
+        
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        arrDayElements = [[NSMutableArray alloc]initWithCapacity:7];
+        [arrDayElements insertObject:[dictionaryContent objectForKey:@"sunday"] atIndex:0];
+        [arrDayElements insertObject:[dictionaryContent objectForKey:@"monday"] atIndex:1];
+        [arrDayElements insertObject:[dictionaryContent objectForKey:@"tuesday"] atIndex:2];
+        [arrDayElements insertObject:[dictionaryContent objectForKey:@"wednesday"] atIndex:3];
+        [arrDayElements insertObject:[dictionaryContent objectForKey:@"thursday"] atIndex:4];
+        [arrDayElements insertObject:[dictionaryContent objectForKey:@"friday"] atIndex:5];
+        [arrDayElements insertObject:[dictionaryContent objectForKey:@"saturday"] atIndex:6];
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        
+        NSMutableArray *arrDays = [[NSMutableArray alloc]init];
+        NSMutableDictionary *tmpDictionay = [NSMutableDictionary dictionary];
+        
+        for (id object in dictionaryContent) {
+            NSMutableDictionary *diccHelp = [NSMutableDictionary dictionary];
+            diccHelp = [dictionaryContent objectForKey:object];
+            
+            [tmpDictionay setValue:object forKey:@"day"];
+            [tmpDictionay setValue:[diccHelp objectForKey:@"open_time"] forKey:@"open_time"];
+            [tmpDictionay setValue:[diccHelp objectForKey:@"close_time"] forKey:@"close_time"];
+            
+            NSMutableDictionary *dicctExtra = [NSMutableDictionary dictionary];
+            
+            [dicctExtra setObject:[tmpDictionay mutableCopy] forKey:[diccHelp objectForKey:@"day_name"]];
+            [arrDays addObject:[dicctExtra mutableCopy]];
+            [tmpDictionay removeAllObjects];
+            [dicctExtra removeAllObjects];
+            
+        }
+        
+        arrTemporal = [arrDays mutableCopy];
+        [self.tableView reloadData];
+        
+        
+    }
 
 }
 
@@ -256,6 +362,35 @@
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     [self removeLoadView];
     NSLog(@"some troubles here...");
+    
+    
+    [self someTroubles];
+}
+*/
+
+-(void)someTroubles{
+    
+    UIView *backView = [[UIView alloc]initWithFrame:self.tableView.frame];
+    [backView setBackgroundColor:[UIColor whiteColor]];
+    
+    UIImageView *imageBlank = [[UIImageView alloc]initWithFrame:CGRectMake(142, 212, 76, 76)];
+    [imageBlank setImage:[UIImage imageNamed:@"failGloves.png"]];
+    [imageBlank setAlpha:0.8];
+    [backView addSubview:imageBlank];
+    
+    UILabel *lblMessage = [[UILabel alloc]initWithFrame:CGRectMake(41, 300, 291, 69)];
+    lblMessage.text = @"Unable to load. Please try again or contact support@goaltracker.com if the issue persists.";
+    lblMessage.numberOfLines = 3;
+    lblMessage.textAlignment = NSTextAlignmentCenter;
+    lblMessage.textColor = [UIColor colorWithRed:139.0/256.0 green:139.0/256.0 blue:139.0/256.0 alpha:1.0];
+    lblMessage.font = [UIFont fontWithName:@"Helvetica Neue" size:17.0];
+    
+    [backView addSubview:lblMessage];
+    
+    [self.tableView setUserInteractionEnabled:NO];
+    [self.tableView setBackgroundView:backView];
+
+    
 }
 
 

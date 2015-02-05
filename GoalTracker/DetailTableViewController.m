@@ -10,9 +10,8 @@
 #import "classCell.h"
 
 @interface DetailTableViewController (){
-    
     int elementSelected;
-    
+
 }
 
 @end
@@ -22,19 +21,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"classCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellClass"];
     
     [self setViewItems];
-    
+}
+
+
+-(int)getNumberofWeek{
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
+    NSInteger weekday = [comps weekday];
+    return (int)weekday;
+}
+
+-(void)dismiss{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)setViewItems{
+    
+    CGRect frame = CGRectMake(0, 0, 70, 44);
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.text = @"CLASS SCHEDULE";
+    self.navigationItem.titleView = label;
+    
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    
+    //UIColor *topBarColor = [UIColor colorWithRed:217.0f/255.0f green:44.0f/255.0f blue:44.0f/255.0f alpha:1.0f];
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    [cancelButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    
+    
     
     self.activitiesCompletedModel = [[NSMutableArray alloc]init];
     
@@ -42,6 +70,38 @@
         [self.activitiesCompletedModel addObject:@"No Completed"];
     }
     
+    self.activitiesCurrentClassImage = [[NSMutableArray alloc]init];
+    
+    for (int i = 0; i < [self.arrClasses count]; i++) {
+        [self.activitiesCurrentClassImage addObject:@"no_image"];
+    }
+    
+    
+    if ([self.arrClasses count] == 0) {
+        UIView *backView = [[UIView alloc]initWithFrame:self.tableView.frame];
+        [backView setBackgroundColor:[UIColor whiteColor]];
+        
+        UIImageView *imageBlank = [[UIImageView alloc]initWithFrame:CGRectMake(142, 212, 76, 76)];
+        [imageBlank setImage:[UIImage imageNamed:@"failGloves.png"]];
+        [imageBlank setAlpha:0.8];
+        [backView addSubview:imageBlank];
+        
+        UILabel *lblMessage = [[UILabel alloc]initWithFrame:CGRectMake(41, 300, 291, 69)];
+        lblMessage.text = @"Unable to load. Please try again or contact support@goaltracker.com if the issue persists.";
+        lblMessage.numberOfLines = 3;
+        lblMessage.textAlignment = NSTextAlignmentCenter;
+        lblMessage.textColor = [UIColor colorWithRed:139.0/256.0 green:139.0/256.0 blue:139.0/256.0 alpha:1.0];
+        lblMessage.font = [UIFont fontWithName:@"Helvetica Neue" size:17.0];
+        
+        [backView addSubview:lblMessage];
+        
+        [self.tableView setUserInteractionEnabled:NO];
+        [self.tableView setBackgroundView:backView];
+        
+    }
+   
+    
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
 }
 
@@ -67,52 +127,70 @@
     
     classCell *cell = (classCell *) [tableView dequeueReusableCellWithIdentifier:@"cellClass" forIndexPath:indexPath];
     
-    
     NSMutableDictionary *diccTmpClass = [NSMutableDictionary dictionary];
-    
     diccTmpClass = [self.arrClasses objectAtIndex:[indexPath row]];
     
     cell.className.text = [diccTmpClass valueForKey:@"class_name"];
-    cell.completedTag.text = [self.activitiesCompletedModel objectAtIndex:indexPath.row];
     cell.classSchedule.text = [diccTmpClass valueForKey:@"class_schedule"];
-
+    cell.completedTag.text = [self.activitiesCompletedModel objectAtIndex:indexPath.row];
+    
+    //Tag color...
+    if ([cell.completedTag.text isEqualToString:@"Completed"]) {
+        [cell.completedTag setBackgroundColor:[UIColor blackColor]];
+        [cell.completedTag setTextColor:[UIColor whiteColor]];
+    }
+    else{
+        [cell.completedTag setBackgroundColor:[UIColor clearColor]];
+        [cell.completedTag setTextColor:[UIColor grayColor]];
+    }
+    
+    [cell.completedTag setFont:[UIFont fontWithName:@"Wagner Modern" size:14.0]];
+    [cell.completedTag.layer setCornerRadius:2.0];
+    [cell.completedTag.layer setMasksToBounds:YES];
+    
+    //imageCell - current class (use data model)
+    //cell.imgCellIcon.image = [UIImage imageNamed:[self.activitiesCurrentClassImage objectAtIndex:indexPath.row]];
+    if (self.dayIdentifier == [self getNumberofWeek]) {
+        
+        //cell.imgCellIcon.image = [UIImage imageNamed:@"currentClass.png"];
+        
+    }
+    
+    [cell.imgCellIcon setHidden:YES];
+    
+    if (self.dayIdentifier == [self getNumberofWeek]) {
+        cell.userInteractionEnabled = YES;
+    }
+    else{
+        cell.userInteractionEnabled = NO;
+    }
     return cell;
+    
 }
 
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 109.0;
-    
+    return 123.0;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 60)];
-    UILabel *lblDates = [[UILabel alloc]initWithFrame:CGRectMake(30, 15, 320, 30)];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 80)];
+    UILabel *lblDates = [[UILabel alloc]initWithFrame:CGRectMake(30, 22, 320, 45)];
     [lblDates setTextAlignment:NSTextAlignmentCenter];
+    [lblDates setFont:[UIFont fontWithName:@"Wagner Modern" size:44.0]];
     lblDates.text = self.nameDay;
     [lblDates setTextColor:[UIColor whiteColor]];
     [headerView setBackgroundColor:[UIColor blackColor]];
     [headerView addSubview:lblDates];
-    
     return headerView;
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
-    return 60.0;
-    
+    return 80.0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     elementSelected = (int)indexPath.row;
-    
     [self showActionSheet];
-    
 }
 
 -(void)showActionSheet{
@@ -121,9 +199,20 @@
     NSString *doneButton = @"I'm Done";
     NSString *cancelButton = @"No, I want to continue";
     
-    
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:actionTitle delegate:self cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:doneButton, nil];
+    
     [actionSheet showInView:self.view];
+    
+}
+
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
+{
+    for (UIView *subview in actionSheet.subviews) {
+        if ([subview isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton *)subview;
+            [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        }
+    }
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -144,6 +233,20 @@
     
     [self.activitiesCompletedModel replaceObjectAtIndex:elementSelected withObject:@"Completed"];
     [self.tableView reloadData];
+}
+
+-(void)checkCurrentClass{
+    
+    //If its the current day
+    if (self.dayIdentifier == [self getNumberofWeek]) {
+        
+        [self.activitiesCurrentClassImage replaceObjectAtIndex:0 withObject:@"currentClass.png"];
+        [self.tableView reloadData];
+        
+        
+    }
+    
+    
 }
 
 /*

@@ -14,5 +14,6 @@
 @property(nonatomic, strong) NSMutableArray *arrClasses;
 @property(nonatomic, assign) NSString *nameDay;
 @property(nonatomic, strong) NSMutableArray *activitiesCompletedModel;
+@property(nonatomic, strong) NSMutableArray *activitiesCurrentClassImage;
 
 @end
