@@ -11,6 +11,7 @@
 #import "DetailTableViewController.h"
 #import "StadisticsViewController.h"
 #import "BlockViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface MainTableViewController (){
     
@@ -20,6 +21,10 @@
     
     
     NSMutableArray *arrDayElements;
+    
+    NSManagedObject *managedGlobal;
+    
+    NSMutableArray *modelDaysCompleted;
 }
 
 @end
@@ -29,12 +34,75 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    modelDaysCompleted = [[NSMutableArray alloc]initWithCapacity:7];
+    
+    for (int i = 0; i<7; i++) {
+        [modelDaysCompleted addObject:@"nocomplete"];
+    }
+    
     arrTemporal = [[NSMutableArray alloc]init];
     arrWeekDays = [[NSMutableArray alloc] initWithObjects:@"sunday", @"monday", @"tuesday", @"wednesday", @"thursday", @"friday", @"saturday", nil];
     
     [self connectToService];
-    
     [self setViewItems];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getValues];
+    [self.tableView reloadData];
+    
+}
+
+-(NSManagedObjectContext *)managedObjectContext{
+    
+    NSManagedObjectContext *context;
+    id delegate = [[UIApplication sharedApplication]delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+    
+}
+
+
+-(void)getValues{
+    
+    //Fetch the information
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"WeekInfo"];
+    NSMutableArray *arrDevices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy];
+    
+    if ([arrDevices count] > 0) {
+        
+        NSManagedObject *device = [arrDevices objectAtIndex:0];
+        managedGlobal = device;
+        
+        if ([[managedGlobal valueForKey:@"sunday"] isEqualToString:@"complete"]) {
+            [modelDaysCompleted insertObject:[managedGlobal valueForKey:@"sunday"] atIndex:0];
+        }
+        else if ([[managedGlobal valueForKey:@"monday"] isEqualToString:@"complete"]){
+            [modelDaysCompleted insertObject:[managedGlobal valueForKey:@"monday"] atIndex:1];
+        }
+        else if ([[managedGlobal valueForKey:@"tuesday"] isEqualToString:@"complete"]){
+            [modelDaysCompleted insertObject:[managedGlobal valueForKey:@"tuesday"] atIndex:2];
+        }
+        else if ([[managedGlobal valueForKey:@"wednesday"] isEqualToString:@"complete"]){
+            [modelDaysCompleted insertObject:[managedGlobal valueForKey:@"wednesday"] atIndex:3];
+        }
+        else if ([[managedGlobal valueForKey:@"thursday"] isEqualToString:@"complete"]){
+            [modelDaysCompleted insertObject:[managedGlobal valueForKey:@"thursday"] atIndex:4];
+        }
+        else if ([[managedGlobal valueForKey:@"friday"] isEqualToString:@"complete"]){
+            [modelDaysCompleted insertObject:[managedGlobal valueForKey:@"friday"] atIndex:5];
+        }
+        else if ([[managedGlobal valueForKey:@"saturday"] isEqualToString:@"complete"]){
+            [modelDaysCompleted insertObject:[managedGlobal valueForKey:@"saturday"] atIndex:6];
+        }
+    
+    }
     
 }
 
@@ -46,7 +114,7 @@
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = @"WEEK SCHEDULE";
+    label.text = @"";//@"Gym Tracker";
     self.navigationItem.titleView = label;
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
@@ -88,23 +156,13 @@
     
 }
 
-
-
-
-
 -(void)goToStadistics{
-    
-    
-    //StadisticsViewController *stadisticsView = [[StadisticsViewController alloc]init];
-    //[self presentViewController:stadisticsView animated:YES completion:nil];
     
     StadisticsViewController *stadisticsView = [[StadisticsViewController alloc]initWithNibName:@"StadisticsViewController" bundle:nil];
     
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:stadisticsView];
     
     [self presentViewController:navController animated:YES completion:nil];
-    
-    
     
 }
 
@@ -149,16 +207,23 @@
     
     //Cell color
     if (indexPath.row + 1 == [self getNumberofWeek]) {
-        //[theCell setBackgroundColor:[UIColor colorWithRed:240.0f/256.0f green:178.0f/256.0 blue:14.0f/256.0f alpha:1.0]];
         [theCell.imgOctagon setImage:[UIImage imageNamed:@"yellowOctagon.png"]];
     }
     else if (indexPath.row + 1 < [self getNumberofWeek]){
-        //[theCell setBackgroundColor:[UIColor redColor]];
         [theCell.imgOctagon setImage:[UIImage imageNamed:@"redOctagon.png"]];
     }
     else{
-        //[theCell setBackgroundColor:[UIColor orangeColor]];
         [theCell.imgOctagon setImage:[UIImage imageNamed:@"orangeOctagon.png"]];
+    }
+    
+    NSString *nameday_ = [[dictionaryTemporal valueForKey:@"day_name"] lowercaseString];
+    
+    if ([[managedGlobal valueForKey:nameday_] isEqualToString:@"complete"]) {
+        [theCell.lblComplete setText:@"Complete"];
+        [theCell.imgOctagon setImage:[UIImage imageNamed:@"greenOctagon.png"]];
+    }
+    else{
+        [theCell.lblComplete setText:@""];
     }
     
     cell = theCell;
@@ -174,7 +239,6 @@
     [lblDates setTextColor:[UIColor whiteColor]];
     [lblDates setFont:[UIFont fontWithName:@"Wagner Modern" size:24.0]];
     [headerView setBackgroundColor:[UIColor blackColor]];
-    //[headerView setBackgroundColor:[UIColor colorWithRed:217.0/256.0 green:44.0/256.0 blue:44.0/256.0 alpha:1.0]];
     [headerView addSubview:lblDates];
     
     return headerView;
@@ -234,17 +298,6 @@
     [connection connect:[req mutableCopy]];
     
     
-    
-    
-    /*
-    NSURLConnection *cnn = [[NSURLConnection alloc]initWithRequest:req delegate:self];
-    [self presentLoadView];
-    
-    if (cnn) {
-        //do something with self.data
-        self.dataResponse = [NSMutableData data];
-    }
-    */
 }
 
 #pragma mark - Connection Delegates
@@ -295,79 +348,6 @@
     }
 }
 
-/*
-#pragma mark - Connection Delegates
--(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    
-    [self removeLoadView];
-    NSMutableDictionary *dictionaryContent = [NSMutableDictionary dictionary];
-    id JSON = [NSJSONSerialization JSONObjectWithData:self.dataResponse options:0 error:nil];
-    dictionaryContent = JSON;
-    
-    
-    if ([dictionaryContent count] == 0) {
-        
-        [self someTroubles];
-        
-    }
-    else{
-        
-        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-        arrDayElements = [[NSMutableArray alloc]initWithCapacity:7];
-        [arrDayElements insertObject:[dictionaryContent objectForKey:@"sunday"] atIndex:0];
-        [arrDayElements insertObject:[dictionaryContent objectForKey:@"monday"] atIndex:1];
-        [arrDayElements insertObject:[dictionaryContent objectForKey:@"tuesday"] atIndex:2];
-        [arrDayElements insertObject:[dictionaryContent objectForKey:@"wednesday"] atIndex:3];
-        [arrDayElements insertObject:[dictionaryContent objectForKey:@"thursday"] atIndex:4];
-        [arrDayElements insertObject:[dictionaryContent objectForKey:@"friday"] atIndex:5];
-        [arrDayElements insertObject:[dictionaryContent objectForKey:@"saturday"] atIndex:6];
-        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-        
-        NSMutableArray *arrDays = [[NSMutableArray alloc]init];
-        NSMutableDictionary *tmpDictionay = [NSMutableDictionary dictionary];
-        
-        for (id object in dictionaryContent) {
-            NSMutableDictionary *diccHelp = [NSMutableDictionary dictionary];
-            diccHelp = [dictionaryContent objectForKey:object];
-            
-            [tmpDictionay setValue:object forKey:@"day"];
-            [tmpDictionay setValue:[diccHelp objectForKey:@"open_time"] forKey:@"open_time"];
-            [tmpDictionay setValue:[diccHelp objectForKey:@"close_time"] forKey:@"close_time"];
-            
-            NSMutableDictionary *dicctExtra = [NSMutableDictionary dictionary];
-            
-            [dicctExtra setObject:[tmpDictionay mutableCopy] forKey:[diccHelp objectForKey:@"day_name"]];
-            [arrDays addObject:[dicctExtra mutableCopy]];
-            [tmpDictionay removeAllObjects];
-            [dicctExtra removeAllObjects];
-            
-        }
-        
-        arrTemporal = [arrDays mutableCopy];
-        [self.tableView reloadData];
-        
-        
-    }
-
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    [self.dataResponse setLength:0];
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    [self.dataResponse appendData:data];
-}
-
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    [self removeLoadView];
-    NSLog(@"some troubles here...");
-    
-    
-    [self someTroubles];
-}
-*/
-
 -(void)someTroubles{
     
     UIView *backView = [[UIView alloc]initWithFrame:self.tableView.frame];
@@ -392,50 +372,5 @@
 
     
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

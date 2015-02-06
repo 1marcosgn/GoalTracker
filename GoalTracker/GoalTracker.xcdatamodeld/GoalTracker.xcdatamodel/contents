@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="WeekInfo" representedClassName="WeekInfo" syncable="YES">
+        <attribute name="friday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="monday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="saturday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sunday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thursday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tuesday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wednesday" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="WeekInfo" positionX="-2466" positionY="-639" width="128" height="148"/>
+    </elements>
 </model>

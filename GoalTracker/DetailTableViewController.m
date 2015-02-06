@@ -8,6 +8,7 @@
 
 #import "DetailTableViewController.h"
 #import "classCell.h"
+#import <CoreData/CoreData.h>
 
 @interface DetailTableViewController (){
     int elementSelected;
@@ -233,19 +234,61 @@
     
     [self.activitiesCompletedModel replaceObjectAtIndex:elementSelected withObject:@"Completed"];
     [self.tableView reloadData];
+    [self saveData];
+    
 }
 
+
+-(void)saveData{
+    //Validation
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"WeekInfo"];
+    NSMutableArray *arrDevices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy];
+    
+    if ([arrDevices count] > 0) {
+        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObject *device = [arrDevices objectAtIndex:0];
+        [device setValue:@"complete" forKey:[self.nameDay lowercaseString]];
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"error here...");
+        }else{
+            NSLog(@"success");
+        }
+    }
+    else{
+        NSManagedObjectContext *context = [self managedObjectContext];
+        //Create a new managed object
+        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"WeekInfo" inManagedObjectContext:context];
+        [newDevice setValue:@"complete" forKey:[self.nameDay lowercaseString]];
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"error here...");
+        }else{
+            NSLog(@"success");
+        }
+    }
+}
+     
 -(void)checkCurrentClass{
     
     //If its the current day
     if (self.dayIdentifier == [self getNumberofWeek]) {
-        
         [self.activitiesCurrentClassImage replaceObjectAtIndex:0 withObject:@"currentClass.png"];
         [self.tableView reloadData];
-        
-        
     }
+}
+
+
+#pragma mark - Core Data Implementation
+-(NSManagedObjectContext *)managedObjectContext{
     
+    NSManagedObjectContext *context;
+    id delegate = [[UIApplication sharedApplication]delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
     
 }
 
