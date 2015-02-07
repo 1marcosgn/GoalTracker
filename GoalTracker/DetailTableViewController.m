@@ -24,7 +24,17 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"classCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellClass"];
     
+    
+    if (self.dayIdentifier != [self getNumberofWeek]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"You can't complete any activity for this day because is not the current day" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    
+    
     [self setViewItems];
+    
 }
 
 
@@ -100,9 +110,13 @@
         [self.tableView setBackgroundView:backView];
         
     }
-   
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+
+    UISwipeGestureRecognizer *recognizer;
+    recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss)];
+    [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:recognizer];
     
 }
 

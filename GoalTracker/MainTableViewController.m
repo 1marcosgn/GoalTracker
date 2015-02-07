@@ -219,7 +219,7 @@
     NSString *nameday_ = [[dictionaryTemporal valueForKey:@"day_name"] lowercaseString];
     
     if ([[managedGlobal valueForKey:nameday_] isEqualToString:@"complete"]) {
-        [theCell.lblComplete setText:@"Complete"];
+        [theCell.lblComplete setText:@""];
         [theCell.imgOctagon setImage:[UIImage imageNamed:@"greenOctagon.png"]];
     }
     else{
@@ -235,7 +235,10 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
     UILabel *lblDates = [[UILabel alloc]initWithFrame:CGRectMake(18, 6, 320, 45)];
     [lblDates setTextAlignment:NSTextAlignmentCenter];
-    lblDates.text = @"  02/04/2015 - 02/10/2015";
+    
+    lblDates.text = [self getStartandEndofWeek];
+    
+    
     [lblDates setTextColor:[UIColor whiteColor]];
     [lblDates setFont:[UIFont fontWithName:@"Wagner Modern" size:24.0]];
     [headerView setBackgroundColor:[UIColor blackColor]];
@@ -243,6 +246,71 @@
     
     return headerView;
 }
+
+
+-(NSString *)getStartandEndofWeek{
+    
+    NSDate *today = [NSDate date];
+    NSLog(@"Today date is %@",today);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];// you can use your format.
+
+    
+    //Week Start Date
+    
+    NSCalendar *gregorian = [[NSCalendar alloc]        initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *components = [gregorian components:NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:today];
+    
+    int dayofweek = (int)[[[NSCalendar currentCalendar] components:NSCalendarUnitWeekday fromDate:today] weekday];// this will give you current day of week
+    
+    [components setDay:([components day] - ((dayofweek) - 1))];// for beginning of the week.
+    
+    NSDate *beginningOfWeek = [gregorian dateFromComponents:components];
+    NSDateFormatter *dateFormat_first = [[NSDateFormatter alloc] init];
+    [dateFormat_first setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString2Prev = [dateFormat stringFromDate:beginningOfWeek];
+    
+    NSDate *weekstartPrev = [dateFormat_first dateFromString:dateString2Prev];
+    
+    //NSLog(@"%@",weekstartPrev);
+    
+    NSString *stringFromDate = [dateFormat_first stringFromDate:weekstartPrev];
+    
+    stringFromDate = [stringFromDate stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+    
+    
+    
+    
+    //Week End Date
+    
+    NSCalendar *gregorianEnd = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *componentsEnd = [gregorianEnd components:NSCalendarUnitWeekday | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:today];
+    
+    int Enddayofweek = (int)[[[NSCalendar currentCalendar] components:NSCalendarUnitWeekday fromDate:today] weekday];// this will give you current day of week
+    
+    [componentsEnd setDay:([componentsEnd day]+(7-Enddayofweek))];// for end day of the week
+    
+    NSDate *EndOfWeek = [gregorianEnd dateFromComponents:componentsEnd];
+    NSDateFormatter *dateFormat_End = [[NSDateFormatter alloc] init];
+    [dateFormat_End setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateEndPrev = [dateFormat stringFromDate:EndOfWeek];
+    
+    NSDate *weekEndPrev = [dateFormat_End dateFromString:dateEndPrev];
+    //NSLog(@"%@",weekEndPrev);
+    
+    NSString *stringFromDate2 = [dateFormat_End stringFromDate:weekEndPrev];
+
+    stringFromDate2 = [stringFromDate2 stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+    
+    
+    
+    return [NSString stringWithFormat:@"%@ - %@", stringFromDate, stringFromDate2];
+    
+    
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 50.0;

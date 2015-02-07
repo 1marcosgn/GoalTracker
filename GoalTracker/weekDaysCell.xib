@@ -49,8 +49,8 @@
                             <constraint firstAttribute="height" constant="47" id="l44-QL-FmD"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sunday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEf-QQ-Cyj">
-                        <rect key="frame" x="0.0" y="60" width="320" height="63"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEf-QQ-Cyj">
+                        <rect key="frame" x="0.0" y="59" width="320" height="63"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="320" id="gW6-lQ-zf1"/>
                             <constraint firstAttribute="height" constant="63" id="yRQ-Up-fXl"/>
@@ -59,7 +59,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zi-ra-ZtN">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zi-ra-ZtN">
                         <rect key="frame" x="8" y="8" width="141" height="38"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="141" id="0wL-bO-Daa"/>
@@ -70,6 +70,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="4Zi-ra-ZtN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="1kD-Ek-Cdr"/>
                     <constraint firstItem="4Zi-ra-ZtN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="33Q-Id-cZp"/>
