@@ -8,6 +8,7 @@
 
 #import "DetailTableViewController.h"
 #import "classCell.h"
+#import <CoreData/CoreData.h>
 
 @interface DetailTableViewController (){
     int elementSelected;
@@ -23,7 +24,17 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"classCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellClass"];
     
+    
+    if (self.dayIdentifier != [self getNumberofWeek]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"You can't complete any activity for this day because is not the current day" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    
+    
     [self setViewItems];
+    
 }
 
 
@@ -99,9 +110,13 @@
         [self.tableView setBackgroundView:backView];
         
     }
-   
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+
+    UISwipeGestureRecognizer *recognizer;
+    recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss)];
+    [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:recognizer];
     
 }
 
@@ -233,19 +248,61 @@
     
     [self.activitiesCompletedModel replaceObjectAtIndex:elementSelected withObject:@"Completed"];
     [self.tableView reloadData];
+    [self saveData];
+    
 }
 
+
+-(void)saveData{
+    //Validation
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"WeekInfo"];
+    NSMutableArray *arrDevices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy];
+    
+    if ([arrDevices count] > 0) {
+        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObject *device = [arrDevices objectAtIndex:0];
+        [device setValue:@"complete" forKey:[self.nameDay lowercaseString]];
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"error here...");
+        }else{
+            NSLog(@"success");
+        }
+    }
+    else{
+        NSManagedObjectContext *context = [self managedObjectContext];
+        //Create a new managed object
+        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"WeekInfo" inManagedObjectContext:context];
+        [newDevice setValue:@"complete" forKey:[self.nameDay lowercaseString]];
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"error here...");
+        }else{
+            NSLog(@"success");
+        }
+    }
+}
+     
 -(void)checkCurrentClass{
     
     //If its the current day
     if (self.dayIdentifier == [self getNumberofWeek]) {
-        
         [self.activitiesCurrentClassImage replaceObjectAtIndex:0 withObject:@"currentClass.png"];
         [self.tableView reloadData];
-        
-        
     }
+}
+
+
+#pragma mark - Core Data Implementation
+-(NSManagedObjectContext *)managedObjectContext{
     
+    NSManagedObjectContext *context;
+    id delegate = [[UIApplication sharedApplication]delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
     
 }
 
