@@ -9,14 +9,13 @@
 #import "StatsTableViewController.h"
 #import <CoreData/CoreData.h>
 #import <Social/Social.h>
+#import "AverageTableViewController.h"
 
 @interface StatsTableViewController (){
-    
     NSMutableArray *arrElements;
     NSMutableArray *modelDaysCompleted;
     NSManagedObject *managedGlobal;
     UIImage *imageGlobal;
-    
 }
 
 @end
@@ -27,7 +26,6 @@
     [super viewDidLoad];
     
     modelDaysCompleted = [[NSMutableArray alloc]initWithCapacity:7];
-    
     for (int i = 0; i<7; i++) {
         [modelDaysCompleted addObject:@"nocomplete"];
     }
@@ -57,7 +55,6 @@
     label.textColor = [UIColor whiteColor];
     label.text = @"Stats";
     self.navigationItem.titleView = label;
-    
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     
@@ -67,13 +64,11 @@
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
-    
     [cancelButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [avgButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = avgButton;
-    
     [self getValues];
     
 }
@@ -97,16 +92,18 @@
     NSMutableArray *arrDevices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy];
     
     if ([arrDevices count] > 0) {
-        
         NSManagedObject *device = [arrDevices objectAtIndex:0];
         managedGlobal = device;
-        
     }
     
 }
 
 -(void)gotoAverage{
     
+    AverageTableViewController *averageView = [[AverageTableViewController alloc]initWithNibName:@"AverageTableViewController" bundle:nil];
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:averageView];
+    [self presentViewController:navController animated:YES completion:nil];
     
 }
 
@@ -118,7 +115,6 @@
     
     imageGlobal = imageShare;
     NSString *actionSheetTitle = @"Share";
-    
     NSString *twitter = @"Twitter";
     NSString *facebook = @"Facebook";
     NSString *cancelSheet = @"Cancel";
@@ -179,7 +175,6 @@
 
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;

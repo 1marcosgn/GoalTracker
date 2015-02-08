@@ -146,7 +146,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="incompleteDay.png" width="27" height="84"/>
+        <image name="incompleteDay.png" width="84" height="270"/>
         <image name="sharebutton.png" width="230" height="256"/>
     </resources>
 </document>

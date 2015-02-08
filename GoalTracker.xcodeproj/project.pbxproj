@@ -46,6 +46,26 @@
 		7F438FAF1A80BDE5004959EE /* currentClass.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FAE1A80BDE5004959EE /* currentClass.png */; };
 		7F438FB11A81FD5D004959EE /* failGloves.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F438FB01A81FD5D004959EE /* failGloves.png */; };
 		7F57E3831A8624E200485AF2 /* sharebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3821A8624E200485AF2 /* sharebutton.png */; };
+		7F57E3881A874C7700485AF2 /* AverageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F57E3861A874C7700485AF2 /* AverageTableViewController.m */; };
+		7F57E3891A874C7700485AF2 /* AverageTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3871A874C7700485AF2 /* AverageTableViewController.xib */; };
+		7F57E38D1A8752D500485AF2 /* AverageFirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F57E38B1A8752D500485AF2 /* AverageFirstTableViewCell.m */; };
+		7F57E38E1A8752D500485AF2 /* AverageFirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E38C1A8752D500485AF2 /* AverageFirstTableViewCell.xib */; };
+		7F57E3911A8753ED00485AF2 /* separatorLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E38F1A8753ED00485AF2 /* separatorLine.png */; };
+		7F57E3921A8753ED00485AF2 /* separatorLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3901A8753ED00485AF2 /* separatorLine@2x.png */; };
+		7F57E3961A8758E800485AF2 /* AverageSecondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F57E3941A8758E800485AF2 /* AverageSecondTableViewCell.m */; };
+		7F57E3971A8758E800485AF2 /* AverageSecondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3951A8758E800485AF2 /* AverageSecondTableViewCell.xib */; };
+		7F57E39A1A875B3200485AF2 /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3981A875B3200485AF2 /* calendar@2x.png */; };
+		7F57E39B1A875B3200485AF2 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3991A875B3200485AF2 /* calendar.png */; };
+		7F57E39F1A875C2800485AF2 /* AverageThirdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F57E39D1A875C2800485AF2 /* AverageThirdTableViewCell.m */; };
+		7F57E3A01A875C2800485AF2 /* AverageThirdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E39E1A875C2800485AF2 /* AverageThirdTableViewCell.xib */; };
+		7F57E3A51A875D8800485AF2 /* calendarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3A11A875D8800485AF2 /* calendarIcon.png */; };
+		7F57E3A61A875D8800485AF2 /* calendarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3A21A875D8800485AF2 /* calendarIcon@2x.png */; };
+		7F57E3A71A875D8800485AF2 /* listIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3A31A875D8800485AF2 /* listIcon.png */; };
+		7F57E3A81A875D8800485AF2 /* listIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3A41A875D8800485AF2 /* listIcon@2x.png */; };
+		7F57E3AC1A875EF000485AF2 /* AverageFourTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F57E3AA1A875EF000485AF2 /* AverageFourTableViewCell.m */; };
+		7F57E3AD1A875EF000485AF2 /* AverageFourTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3AB1A875EF000485AF2 /* AverageFourTableViewCell.xib */; };
+		7F57E3B01A875FB200485AF2 /* challenge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3AE1A875FB200485AF2 /* challenge.png */; };
+		7F57E3B11A875FB200485AF2 /* challenge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3AF1A875FB200485AF2 /* challenge@2x.png */; };
 		7F9A8A531A83582B00C5CB05 /* WeekInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A8A521A83582B00C5CB05 /* WeekInfo.m */; };
 		7FE009291A7DABB50057BF0A /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE009271A7DABB50057BF0A /* BlockViewController.m */; };
 		7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FE009281A7DABB50057BF0A /* BlockViewController.xib */; };
@@ -114,6 +134,31 @@
 		7F438FAE1A80BDE5004959EE /* currentClass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentClass.png; sourceTree = "<group>"; };
 		7F438FB01A81FD5D004959EE /* failGloves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failGloves.png; sourceTree = "<group>"; };
 		7F57E3821A8624E200485AF2 /* sharebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharebutton.png; sourceTree = "<group>"; };
+		7F57E3851A874C7700485AF2 /* AverageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AverageTableViewController.h; sourceTree = "<group>"; };
+		7F57E3861A874C7700485AF2 /* AverageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AverageTableViewController.m; sourceTree = "<group>"; };
+		7F57E3871A874C7700485AF2 /* AverageTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageTableViewController.xib; sourceTree = "<group>"; };
+		7F57E38A1A8752D500485AF2 /* AverageFirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AverageFirstTableViewCell.h; sourceTree = "<group>"; };
+		7F57E38B1A8752D500485AF2 /* AverageFirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AverageFirstTableViewCell.m; sourceTree = "<group>"; };
+		7F57E38C1A8752D500485AF2 /* AverageFirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageFirstTableViewCell.xib; sourceTree = "<group>"; };
+		7F57E38F1A8753ED00485AF2 /* separatorLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separatorLine.png; sourceTree = "<group>"; };
+		7F57E3901A8753ED00485AF2 /* separatorLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "separatorLine@2x.png"; sourceTree = "<group>"; };
+		7F57E3931A8758E800485AF2 /* AverageSecondTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AverageSecondTableViewCell.h; sourceTree = "<group>"; };
+		7F57E3941A8758E800485AF2 /* AverageSecondTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AverageSecondTableViewCell.m; sourceTree = "<group>"; };
+		7F57E3951A8758E800485AF2 /* AverageSecondTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageSecondTableViewCell.xib; sourceTree = "<group>"; };
+		7F57E3981A875B3200485AF2 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar@2x.png"; sourceTree = "<group>"; };
+		7F57E3991A875B3200485AF2 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		7F57E39C1A875C2800485AF2 /* AverageThirdTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AverageThirdTableViewCell.h; sourceTree = "<group>"; };
+		7F57E39D1A875C2800485AF2 /* AverageThirdTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AverageThirdTableViewCell.m; sourceTree = "<group>"; };
+		7F57E39E1A875C2800485AF2 /* AverageThirdTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageThirdTableViewCell.xib; sourceTree = "<group>"; };
+		7F57E3A11A875D8800485AF2 /* calendarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendarIcon.png; sourceTree = "<group>"; };
+		7F57E3A21A875D8800485AF2 /* calendarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendarIcon@2x.png"; sourceTree = "<group>"; };
+		7F57E3A31A875D8800485AF2 /* listIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listIcon.png; sourceTree = "<group>"; };
+		7F57E3A41A875D8800485AF2 /* listIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listIcon@2x.png"; sourceTree = "<group>"; };
+		7F57E3A91A875EF000485AF2 /* AverageFourTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AverageFourTableViewCell.h; sourceTree = "<group>"; };
+		7F57E3AA1A875EF000485AF2 /* AverageFourTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AverageFourTableViewCell.m; sourceTree = "<group>"; };
+		7F57E3AB1A875EF000485AF2 /* AverageFourTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageFourTableViewCell.xib; sourceTree = "<group>"; };
+		7F57E3AE1A875FB200485AF2 /* challenge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = challenge.png; sourceTree = "<group>"; };
+		7F57E3AF1A875FB200485AF2 /* challenge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "challenge@2x.png"; sourceTree = "<group>"; };
 		7F9A8A511A83582B00C5CB05 /* WeekInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekInfo.h; sourceTree = "<group>"; };
 		7F9A8A521A83582B00C5CB05 /* WeekInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekInfo.m; sourceTree = "<group>"; };
 		7FE009261A7DABB50057BF0A /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
@@ -160,6 +205,7 @@
 		538D37001A7AC20900EAD83D /* GoalTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7F57E3841A874C4700485AF2 /* Average */,
 				7F438FAD1A80BDD6004959EE /* images */,
 				7F438F9E1A80A454004959EE /* Resources */,
 				538D373F1A7B02A000EAD83D /* Stadistics */,
@@ -275,6 +321,16 @@
 		7F438FAD1A80BDD6004959EE /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7F57E3AE1A875FB200485AF2 /* challenge.png */,
+				7F57E3AF1A875FB200485AF2 /* challenge@2x.png */,
+				7F57E3A11A875D8800485AF2 /* calendarIcon.png */,
+				7F57E3A21A875D8800485AF2 /* calendarIcon@2x.png */,
+				7F57E3A31A875D8800485AF2 /* listIcon.png */,
+				7F57E3A41A875D8800485AF2 /* listIcon@2x.png */,
+				7F57E3981A875B3200485AF2 /* calendar@2x.png */,
+				7F57E3991A875B3200485AF2 /* calendar.png */,
+				7F57E38F1A8753ED00485AF2 /* separatorLine.png */,
+				7F57E3901A8753ED00485AF2 /* separatorLine@2x.png */,
 				7F438FAE1A80BDE5004959EE /* currentClass.png */,
 				538D37AD1A82C9EB00EAD83D /* octagon.png */,
 				538D37B71A82CFD100EAD83D /* yellowOctagon.png */,
@@ -288,6 +344,28 @@
 				7F57E3821A8624E200485AF2 /* sharebutton.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		7F57E3841A874C4700485AF2 /* Average */ = {
+			isa = PBXGroup;
+			children = (
+				7F57E3851A874C7700485AF2 /* AverageTableViewController.h */,
+				7F57E3861A874C7700485AF2 /* AverageTableViewController.m */,
+				7F57E3871A874C7700485AF2 /* AverageTableViewController.xib */,
+				7F57E38A1A8752D500485AF2 /* AverageFirstTableViewCell.h */,
+				7F57E38B1A8752D500485AF2 /* AverageFirstTableViewCell.m */,
+				7F57E38C1A8752D500485AF2 /* AverageFirstTableViewCell.xib */,
+				7F57E3931A8758E800485AF2 /* AverageSecondTableViewCell.h */,
+				7F57E3941A8758E800485AF2 /* AverageSecondTableViewCell.m */,
+				7F57E3951A8758E800485AF2 /* AverageSecondTableViewCell.xib */,
+				7F57E39C1A875C2800485AF2 /* AverageThirdTableViewCell.h */,
+				7F57E39D1A875C2800485AF2 /* AverageThirdTableViewCell.m */,
+				7F57E39E1A875C2800485AF2 /* AverageThirdTableViewCell.xib */,
+				7F57E3A91A875EF000485AF2 /* AverageFourTableViewCell.h */,
+				7F57E3AA1A875EF000485AF2 /* AverageFourTableViewCell.m */,
+				7F57E3AB1A875EF000485AF2 /* AverageFourTableViewCell.xib */,
+			);
+			name = Average;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,28 +454,43 @@
 				7F438FA61A80AB8D004959EE /* Fmcoinout.ttf in Resources */,
 				538D37BB1A82CFD100EAD83D /* yellowOctagon.png in Resources */,
 				538D37BD1A82CFD100EAD83D /* redOctagon.png in Resources */,
+				7F57E3A61A875D8800485AF2 /* calendarIcon@2x.png in Resources */,
 				7F57E3831A8624E200485AF2 /* sharebutton.png in Resources */,
 				7F3F4DEF1A8601FA000D5BED /* StatsTableViewController.xib in Resources */,
+				7F57E39B1A875B3200485AF2 /* calendar.png in Resources */,
 				538D37BC1A82CFD100EAD83D /* greenOctagon.png in Resources */,
 				7F438FA71A80AB8D004959EE /* Fmcot.ttf in Resources */,
 				538D37AE1A82C9EB00EAD83D /* octagon.png in Resources */,
+				7F57E3921A8753ED00485AF2 /* separatorLine@2x.png in Resources */,
 				7F438FA81A80AB8D004959EE /* New Athletic M54.ttf in Resources */,
+				7F57E39A1A875B3200485AF2 /* calendar@2x.png in Resources */,
+				7F57E3B01A875FB200485AF2 /* challenge.png in Resources */,
 				7F438FA91A80AB8D004959EE /* Fmcout.ttf in Resources */,
 				7F438FAA1A80AB8D004959EE /* Wagner Modern.ttf in Resources */,
+				7F57E3A81A875D8800485AF2 /* listIcon@2x.png in Resources */,
 				538D373E1A7AF33600EAD83D /* classCell.xib in Resources */,
+				7F57E38E1A8752D500485AF2 /* AverageFirstTableViewCell.xib in Resources */,
 				7F3F4DF41A8602EB000D5BED /* StatsDayTableViewCell.xib in Resources */,
 				7F438FA01A80A467004959EE /* timeburner_regular.ttf in Resources */,
 				538D37101A7AC20900EAD83D /* Main.storyboard in Resources */,
+				7F57E3B11A875FB200485AF2 /* challenge@2x.png in Resources */,
+				7F57E3911A8753ED00485AF2 /* separatorLine.png in Resources */,
+				7F57E3A71A875D8800485AF2 /* listIcon.png in Resources */,
 				7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */,
 				7F3F4DFC1A860882000D5BED /* completeDay.png in Resources */,
+				7F57E3A51A875D8800485AF2 /* calendarIcon.png in Resources */,
 				538D37151A7AC20900EAD83D /* LaunchScreen.xib in Resources */,
+				7F57E3891A874C7700485AF2 /* AverageTableViewController.xib in Resources */,
 				538D37331A7AC78400EAD83D /* weekDaysCell.xib in Resources */,
 				7F438FB11A81FD5D004959EE /* failGloves.png in Resources */,
 				538D37BE1A82CFD100EAD83D /* orangeOctagon.png in Resources */,
 				7F438FAF1A80BDE5004959EE /* currentClass.png in Resources */,
 				538D37391A7AE62700EAD83D /* DetailTableViewController.xib in Resources */,
+				7F57E3A01A875C2800485AF2 /* AverageThirdTableViewCell.xib in Resources */,
+				7F57E3971A8758E800485AF2 /* AverageSecondTableViewCell.xib in Resources */,
 				7F3F4DFD1A860882000D5BED /* notCompleteDay.png in Resources */,
 				7F3F4DF91A8603CD000D5BED /* StatsGraphicTableViewCell.xib in Resources */,
+				7F57E3AD1A875EF000485AF2 /* AverageFourTableViewCell.xib in Resources */,
 				538D37121A7AC20900EAD83D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,8 +510,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				538D37071A7AC20900EAD83D /* AppDelegate.m in Sources */,
+				7F57E3961A8758E800485AF2 /* AverageSecondTableViewCell.m in Sources */,
 				538D370A1A7AC20900EAD83D /* GoalTracker.xcdatamodeld in Sources */,
+				7F57E39F1A875C2800485AF2 /* AverageThirdTableViewCell.m in Sources */,
 				7F3F4DF31A8602EB000D5BED /* StatsDayTableViewCell.m in Sources */,
+				7F57E3AC1A875EF000485AF2 /* AverageFourTableViewCell.m in Sources */,
 				538D37381A7AE62700EAD83D /* DetailTableViewController.m in Sources */,
 				538D370D1A7AC20900EAD83D /* ViewController.m in Sources */,
 				538D373D1A7AF33600EAD83D /* classCell.m in Sources */,
@@ -427,8 +523,10 @@
 				538D37321A7AC78400EAD83D /* weekDaysCell.m in Sources */,
 				7F9A8A531A83582B00C5CB05 /* WeekInfo.m in Sources */,
 				7F3F4DF81A8603CD000D5BED /* StatsGraphicTableViewCell.m in Sources */,
+				7F57E3881A874C7700485AF2 /* AverageTableViewController.m in Sources */,
 				7FE009291A7DABB50057BF0A /* BlockViewController.m in Sources */,
 				538D37041A7AC20900EAD83D /* main.m in Sources */,
+				7F57E38D1A8752D500485AF2 /* AverageFirstTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
