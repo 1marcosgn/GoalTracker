@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="avgFirst" rowHeight="119" id="KGk-i7-Jjw" customClass="AverageFirstTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYB-Bp-nV0">
+                        <rect key="frame" x="155" y="26" width="10" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="HBn-ry-g4s"/>
+                            <constraint firstAttribute="height" constant="60" id="usn-JZ-oHj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                        <color key="textColor" white="0.0" alpha="0.28000000000000003" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTIVITIES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCo-e5-kWc">
+                        <rect key="frame" x="8" y="8" width="70" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="0y0-Zf-WEE"/>
+                            <constraint firstAttribute="height" constant="24" id="Tag-i1-i6d"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALu-TD-A94">
+                        <rect key="frame" x="21" y="31" width="125" height="52"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="52" id="7XF-b8-Vej"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="Bst-zl-Bwz"/>
+                            <constraint firstAttribute="width" constant="125" id="Gyd-25-VvI"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="Jea-Ef-IfT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                        <color key="textColor" red="0.47843137250000001" green="0.68235294120000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYM-bO-O01">
+                        <rect key="frame" x="187" y="31" width="125" height="52"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="52" id="kHl-Uw-3SQ"/>
+                            <constraint firstAttribute="width" constant="125" id="xvC-Eo-hb4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                        <color key="textColor" red="0.87058823529999996" green="0.79215686269999996" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="THIS WEEK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-pV-JPh">
+                        <rect key="frame" x="21" y="79" width="125" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DAYS LEFT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJt-bS-93x">
+                        <rect key="frame" x="187" y="79" width="125" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ALu-TD-A94" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="3kZ-cW-9pX"/>
+                    <constraint firstItem="MCo-e5-kWc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="IFr-lL-RLh"/>
+                    <constraint firstItem="ALu-TD-A94" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="Ith-gG-Qkb"/>
+                    <constraint firstItem="MCo-e5-kWc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="LDh-Vp-qvP"/>
+                    <constraint firstItem="UYM-bO-O01" firstAttribute="leading" secondItem="ZJt-bS-93x" secondAttribute="leading" id="Smv-1u-7dq"/>
+                    <constraint firstAttribute="centerY" secondItem="sYB-Bp-nV0" secondAttribute="centerY" constant="3.5" id="TwS-e9-DHB"/>
+                    <constraint firstItem="UYM-bO-O01" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="bCg-Vu-aNx"/>
+                    <constraint firstItem="UYM-bO-O01" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="23" id="bws-gP-iUa"/>
+                    <constraint firstItem="ALu-TD-A94" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="23" id="gNa-82-XI9"/>
+                    <constraint firstAttribute="centerX" secondItem="sYB-Bp-nV0" secondAttribute="centerX" id="rsv-uE-x6t"/>
+                    <constraint firstItem="ALu-TD-A94" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="23" id="vIR-wg-9Qu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblCurrentDays" destination="ALu-TD-A94" id="snp-YF-Xr3"/>
+                <outlet property="lblRestDays" destination="UYM-bO-O01" id="MdG-sV-AIV"/>
+            </connections>
+            <point key="canvasLocation" x="576" y="195.5"/>
+        </tableViewCell>
+    </objects>
+</document>

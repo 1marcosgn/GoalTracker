@@ -9,9 +9,9 @@
 #import "MainTableViewController.h"
 #import "weekDaysCell.h"
 #import "DetailTableViewController.h"
-#import "StadisticsViewController.h"
 #import "BlockViewController.h"
 #import <CoreData/CoreData.h>
+#import "StatsTableViewController.h"
 
 @interface MainTableViewController (){
     
@@ -158,7 +158,7 @@
 
 -(void)goToStadistics{
     
-    StadisticsViewController *stadisticsView = [[StadisticsViewController alloc]initWithNibName:@"StadisticsViewController" bundle:nil];
+    StatsTableViewController *stadisticsView = [[StatsTableViewController alloc]initWithNibName:@"StatsTableViewController" bundle:nil];
     
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:stadisticsView];
     
