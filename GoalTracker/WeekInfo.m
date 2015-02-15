@@ -8,7 +8,6 @@
 
 #import "WeekInfo.h"
 
-
 @implementation WeekInfo
 
 @dynamic saturday;

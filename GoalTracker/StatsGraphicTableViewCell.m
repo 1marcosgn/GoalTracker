@@ -11,19 +11,14 @@
 @implementation StatsGraphicTableViewCell
 @synthesize delegate;
 
-
 - (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (IBAction)shareAction:(id)sender {
-    
     //Get screenshot of the graphic
     CGRect rect = [self.viewGraphic bounds];
     UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0f);
@@ -31,8 +26,7 @@
     [self.viewGraphic.layer renderInContext:context];
     UIImage *capturedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     [delegate shareWeekActivity:capturedImage];
-    
 }
+
 @end

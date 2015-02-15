@@ -17,6 +17,9 @@
     NSManagedObject *managedGlobal;
     NSMutableArray *arrElements;
     int current, left;
+    UIImageView *imgChallenge;
+    UIImageView *imgFront;
+    NSMutableArray *arrQuotes;
 }
 @end
 
@@ -24,9 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     current = 0;
     left = 0;
+    
+    arrQuotes = [[NSMutableArray alloc]initWithObjects:@"Winners are not those who never fail, they are those who never quit", @"Limited skills is overcome by unlimited will", @"Boxing is real easy. Life is much harder", @"A champion is someone who stands up when he can't", @"To be a champion you have to believe in yourself when no one else will", @"When life gets tough put on your boxing gloves", @"Don't quit. Suffer now and live the rest of your life as a champion", @"You are so much stronger than you think", nil];
     
     arrElements = [[NSMutableArray alloc]initWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil];
     
@@ -39,18 +43,14 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"AverageFourTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"avgFour"];
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    
     UISwipeGestureRecognizer *recognizer;
     recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:recognizer];
-    
     [self setViewItems];
-    
 }
 
 -(void)setViewItems{
-    
     CGRect frame = CGRectMake(0, 0, 70, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
@@ -60,7 +60,9 @@
     label.text = @"Average";
     self.navigationItem.titleView = label;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    
+    UIColor *topBarColor = [UIColor colorWithRed:169.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    self.navigationController.navigationBar.barTintColor = topBarColor;//[UIColor redColor];
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     
@@ -70,43 +72,35 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
     [self getValues];
     [self setCurrentandLeftDays];
-    
 }
 
 -(NSString *)getCurrentDayName{
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyyMMdd";
     NSDate *date = [NSDate date];
     dateFormatter.dateFormat=@"EEEE";
     NSString * dayString = [[dateFormatter stringFromDate:date] capitalizedString];
     return  dayString;
-    
 }
 
 -(void)getValues{
-    
     //Fetch the information
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"WeekInfo"];
     NSMutableArray *arrDevices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy];
-    
     if ([arrDevices count] > 0) {
         NSManagedObject *device = [arrDevices objectAtIndex:0];
         managedGlobal = device;
     }
-    
 }
 
 -(NSManagedObjectContext *)managedObjectContext{
-    
     NSManagedObjectContext *context;
     id delegate = [[UIApplication sharedApplication]delegate];
     if ([delegate performSelector:@selector(managedObjectContext)]) {
         context = [delegate managedObjectContext];
     }
     return context;
-    
 }
 
 -(void)dismiss{
@@ -114,7 +108,6 @@
 }
 
 -(void)setCurrentandLeftDays{
-    
     for (int i = 0; i < [arrElements count]; i++) {
         if ([[managedGlobal valueForKey:[arrElements objectAtIndex:i]] isEqualToString:@"complete"]) {
             current = current + 1;
@@ -123,16 +116,13 @@
             left = left + 1;
         }
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
@@ -144,9 +134,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     UITableViewCell *cell;
-    
     if (indexPath.row == 0) {
         AverageFirstTableViewCell *firstCell = (AverageFirstTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"avgFirst" forIndexPath:indexPath];
         firstCell.lblCurrentDays.text = [NSString stringWithFormat:@"%d", current];
@@ -165,6 +153,8 @@
     else if (indexPath.row == 3){
         AverageFourTableViewCell *fourCell = (AverageFourTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"avgFour" forIndexPath:indexPath];
         fourCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        int randNum = rand() % [arrQuotes count];
+        fourCell.lblQoute.text = [arrQuotes objectAtIndex:randNum];
         cell = fourCell;
     }
     return cell;
@@ -185,6 +175,29 @@
         size = 119.0;
     }
     return size;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+    [headerView setBackgroundColor:[UIColor blackColor]];
+    imgChallenge = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"octag.png"]];
+    imgChallenge.frame = CGRectMake(0, 0, 380, 185);
+    [headerView addSubview:imgChallenge];
+    imgFront = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"imgTest.png"]];
+    imgFront.frame = CGRectMake(140, 30, 90, 90);
+    return headerView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 185.0;
+}
+
+#pragma mark - Scrolling
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    float scale = 1.0f + fabsf(scrollView.contentOffset.y) / scrollView.frame.size.height;
+    scale = MAX(0.0f, scale);
+    imgChallenge.transform = CGAffineTransformMakeScale(scale, scale);
+    imgFront.transform = CGAffineTransformMakeScale(scale, scale);
 }
 
 @end

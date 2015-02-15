@@ -10,11 +10,9 @@
 
 @interface classCell : UITableViewCell
 
-
 @property (weak, nonatomic) IBOutlet UILabel *className;
 @property (weak, nonatomic) IBOutlet UILabel *classSchedule;
 @property (weak, nonatomic) IBOutlet UILabel *completedTag;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCellIcon;
-
 
 @end

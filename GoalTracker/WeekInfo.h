@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-
 @interface WeekInfo : NSManagedObject
 
 @property (nonatomic, retain) NSString * saturday;

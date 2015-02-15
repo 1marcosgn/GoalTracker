@@ -27,9 +27,7 @@
 @property (nonatomic, retain) NSString *webServiceName;
 @property (weak, nonatomic) IBOutlet UIView *containerLoad;
 
-
 -(void)connect:(NSMutableURLRequest *)req;
--(void)executeService:(NSString *)nameWebService withData:(NSData *)jsonData type:(NSString *)type headers:(NSMutableDictionary *)headers;
 -(void)start;
 -(void)finish;
 -(void)setPositionFromFrame:(CGRect)frame;

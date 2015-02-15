@@ -16,5 +16,4 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgOctagon;
 @property (weak, nonatomic) IBOutlet UILabel *lblComplete;
 
-
 @end

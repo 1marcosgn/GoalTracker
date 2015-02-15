@@ -12,9 +12,7 @@
 
 @interface DetailTableViewController (){
     int elementSelected;
-
 }
-
 @end
 
 @implementation DetailTableViewController
@@ -25,13 +23,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"classCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellClass"];
     
     if (self.dayIdentifier != [self getNumberofWeek]) {
-        
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"You can't complete any activity for this day because is not the current day" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
-    
     [self setViewItems];
-    
 }
 
 -(int)getNumberofWeek{
@@ -46,27 +41,26 @@
 }
 
 -(void)setViewItems{
-    
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"octagonBack.png"]];
     CGRect frame = CGRectMake(0, 0, 70, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    label.font = [UIFont fontWithName:@"FM College Team" size:35];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = @"CLASS SCHEDULE";
+    label.text = [self.nameDay uppercaseString];
     self.navigationItem.titleView = label;
-    
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    
+    UIColor *topBarColor = [UIColor colorWithRed:169.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    self.navigationController.navigationBar.barTintColor = topBarColor;
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
     [cancelButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    
     self.navigationItem.leftBarButtonItem = cancelButton;
-    
     self.activitiesCompletedModel = [[NSMutableArray alloc]init];
     
     for (int i = 0; i < [self.arrClasses count]; i++) {
@@ -82,7 +76,6 @@
     if ([self.arrClasses count] == 0) {
         UIView *backView = [[UIView alloc]initWithFrame:self.tableView.frame];
         [backView setBackgroundColor:[UIColor whiteColor]];
-        
         UIImageView *imageBlank = [[UIImageView alloc]initWithFrame:CGRectMake(142, 212, 76, 76)];
         [imageBlank setImage:[UIImage imageNamed:@"failGloves.png"]];
         [imageBlank setAlpha:0.8];
@@ -96,28 +89,22 @@
         lblMessage.font = [UIFont fontWithName:@"Helvetica Neue" size:17.0];
         
         [backView addSubview:lblMessage];
-        
         [self.tableView setUserInteractionEnabled:NO];
         [self.tableView setBackgroundView:backView];
-        
     }
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-
     UISwipeGestureRecognizer *recognizer;
     recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:recognizer];
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
@@ -128,14 +115,10 @@
     return [self.arrClasses count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     classCell *cell = (classCell *) [tableView dequeueReusableCellWithIdentifier:@"cellClass" forIndexPath:indexPath];
-    
     NSMutableDictionary *diccTmpClass = [NSMutableDictionary dictionary];
     diccTmpClass = [self.arrClasses objectAtIndex:[indexPath row]];
-    
     cell.className.text = [diccTmpClass valueForKey:@"class_name"];
     cell.classSchedule.text = [diccTmpClass valueForKey:@"class_schedule"];
     cell.completedTag.text = [self.activitiesCompletedModel objectAtIndex:indexPath.row];
@@ -153,45 +136,23 @@
     [cell.completedTag setFont:[UIFont fontWithName:@"Wagner Modern" size:14.0]];
     [cell.completedTag.layer setCornerRadius:2.0];
     [cell.completedTag.layer setMasksToBounds:YES];
-    
-    //imageCell - current class (use data model)
-    //cell.imgCellIcon.image = [UIImage imageNamed:[self.activitiesCurrentClassImage objectAtIndex:indexPath.row]];
-    if (self.dayIdentifier == [self getNumberofWeek]) {
-        
-        //cell.imgCellIcon.image = [UIImage imageNamed:@"currentClass.png"];
-        
-    }
-    
     [cell.imgCellIcon setHidden:YES];
     
     if (self.dayIdentifier == [self getNumberofWeek]) {
         cell.userInteractionEnabled = YES;
     }
     else{
-        cell.userInteractionEnabled = NO;
+        cell.userInteractionEnabled = YES;
     }
     return cell;
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 123.0;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 80)];
-    UILabel *lblDates = [[UILabel alloc]initWithFrame:CGRectMake(30, 22, 320, 45)];
-    [lblDates setTextAlignment:NSTextAlignmentCenter];
-    [lblDates setFont:[UIFont fontWithName:@"Wagner Modern" size:44.0]];
-    lblDates.text = self.nameDay;
-    [lblDates setTextColor:[UIColor whiteColor]];
-    [headerView setBackgroundColor:[UIColor blackColor]];
-    [headerView addSubview:lblDates];
-    return headerView;
-}
-
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 80.0;
+    return 0.0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -200,15 +161,11 @@
 }
 
 -(void)showActionSheet{
-    
     NSString *actionTitle = @"Did you finish the activity??";
     NSString *doneButton = @"I'm Done";
     NSString *cancelButton = @"No, I want to continue";
-    
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:actionTitle delegate:self cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:doneButton, nil];
-    
     [actionSheet showInView:self.view];
-    
 }
 
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet
@@ -227,18 +184,15 @@
         case 0:
             [self setActivityDone];
             break;
-
         default:
             break;
     }
 }
 
 -(void)setActivityDone{
-    
     [self.activitiesCompletedModel replaceObjectAtIndex:elementSelected withObject:@"Completed"];
     [self.tableView reloadData];
     [self saveData];
-    
 }
 
 -(void)saveData{
@@ -273,7 +227,6 @@
 }
      
 -(void)checkCurrentClass{
-    
     //If its the current day
     if (self.dayIdentifier == [self getNumberofWeek]) {
         [self.activitiesCurrentClassImage replaceObjectAtIndex:0 withObject:@"currentClass.png"];
@@ -281,17 +234,14 @@
     }
 }
 
-
 #pragma mark - Core Data Implementation
 -(NSManagedObjectContext *)managedObjectContext{
-    
     NSManagedObjectContext *context;
     id delegate = [[UIApplication sharedApplication]delegate];
     if ([delegate performSelector:@selector(managedObjectContext)]) {
         context = [delegate managedObjectContext];
     }
     return context;
-    
 }
 
 @end

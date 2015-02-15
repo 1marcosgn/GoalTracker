@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BlockViewController.h"
 
-//@interface MainTableViewController : UITableViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
-@interface MainTableViewController : UITableViewController <ConnectionDelegate>
-
+@interface MainTableViewController : UITableViewController <ConnectionDelegate, UIAlertViewDelegate>
 @property (nonatomic, retain) NSMutableData *dataResponse;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 

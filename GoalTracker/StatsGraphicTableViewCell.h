@@ -14,9 +14,7 @@
 @end
 
 @interface StatsGraphicTableViewCell : UITableViewCell{
-    
     id<shareProtocol> delegate;
-    
 }
 
 @property (nonatomic, strong) id delegate;

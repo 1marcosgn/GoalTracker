@@ -5,8 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Bronx Bystreets 1.4 c PERSONAL USE ONLY.ttf">
+            <string>BronxBystreets</string>
+        </mutableArray>
         <mutableArray key="Wagner Modern.ttf">
-            <string>WagnerModern</string>
             <string>WagnerModern</string>
             <string>WagnerModern</string>
         </mutableArray>
@@ -14,89 +16,89 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weekday" rowHeight="181" id="KGk-i7-Jjw" customClass="weekDaysCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weekday" rowHeight="196" id="KGk-i7-Jjw" customClass="weekDaysCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Open from 10:30am to 12:45am" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAt-8o-OiJ">
-                        <rect key="frame" x="0.0" y="157" width="320" height="24"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainCell.png" translatesAutoresizingMaskIntoConstraints="NO" id="ayG-gG-rf8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="320" id="Ayv-oC-mGb"/>
-                            <constraint firstAttribute="height" constant="24" id="KBX-B0-CJa"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="17"/>
-                        <color key="textColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Day # 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nou-hP-ZYj">
-                        <rect key="frame" x="228" y="3" width="92" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="32" id="Ih3-PP-Wch"/>
-                            <constraint firstAttribute="width" constant="92" id="JtH-SM-ycs"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="WagnerModern" family="Wagner Modern" pointSize="25"/>
-                        <color key="textColor" red="0.98431372549999996" green="0.0" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="yellowOctagon.png" translatesAutoresizingMaskIntoConstraints="NO" id="xsw-uC-SGq">
-                        <rect key="frame" x="8" y="102" width="47" height="47"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="47" id="8XT-n4-gLv"/>
-                            <constraint firstAttribute="height" constant="47" id="l44-QL-FmD"/>
+                            <constraint firstAttribute="height" constant="196" id="YB4-R2-n96"/>
+                            <constraint firstAttribute="width" constant="320" id="tyU-xF-ALR"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEf-QQ-Cyj">
-                        <rect key="frame" x="0.0" y="59" width="320" height="63"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day # 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClY-GY-aos">
+                        <rect key="frame" x="218" y="6" width="102" height="51"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="320" id="gW6-lQ-zf1"/>
-                            <constraint firstAttribute="height" constant="63" id="yRQ-Up-fXl"/>
+                            <constraint firstAttribute="height" constant="51" id="7UK-oQ-b31"/>
+                            <constraint firstAttribute="width" constant="102" id="mXu-Tj-Aou"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="WagnerModern" family="Wagner Modern" pointSize="60"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="WagnerModern" family="Wagner Modern" pointSize="32"/>
+                        <color key="textColor" red="0.80784313730000001" green="0.6705882353" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zi-ra-ZtN">
-                        <rect key="frame" x="8" y="8" width="141" height="38"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WEDNESDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3x-v1-YmE">
+                        <rect key="frame" x="0.0" y="50" width="320" height="98"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="141" id="0wL-bO-Daa"/>
-                            <constraint firstAttribute="height" constant="38" id="eHg-t4-nBu"/>
+                            <constraint firstAttribute="width" constant="320" id="bed-BP-oct"/>
+                            <constraint firstAttribute="height" constant="98" id="jY3-vK-gwT"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="WagnerModern" family="Wagner Modern" pointSize="33"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="WagnerModern" family="Wagner Modern" pointSize="73"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open from 10:30am to 12:45am" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4P-lM-qFi">
+                        <rect key="frame" x="0.0" y="170" width="320" height="24"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.92000000000000004" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="27E-9D-OOQ"/>
+                            <constraint firstAttribute="width" constant="320" id="Hg2-5i-twS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="18"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDq-Jn-Y9U">
+                        <rect key="frame" x="36" y="68" width="249" height="59"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="59" id="KEq-BY-70h"/>
+                            <constraint firstAttribute="width" constant="249" id="aTx-6f-t5P"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="BronxBystreets" family="Bronx Bystreets" pointSize="44"/>
+                        <color key="textColor" red="0.66159539469999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="4Zi-ra-ZtN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="1kD-Ek-Cdr"/>
-                    <constraint firstItem="4Zi-ra-ZtN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="33Q-Id-cZp"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="nou-hP-ZYj" secondAttribute="trailing" constant="-8" id="B01-g7-1cN"/>
-                    <constraint firstItem="xsw-uC-SGq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="BDa-bt-061"/>
-                    <constraint firstItem="nou-hP-ZYj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="FT9-yO-Ybf"/>
-                    <constraint firstItem="nAt-8o-OiJ" firstAttribute="top" secondItem="xsw-uC-SGq" secondAttribute="bottom" constant="8" id="IzW-XQ-ggh"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="nAt-8o-OiJ" secondAttribute="bottom" constant="-8" id="Rjm-zc-y4x"/>
-                    <constraint firstItem="VEf-QQ-Cyj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="51" id="Y7a-cH-mEH"/>
-                    <constraint firstItem="nAt-8o-OiJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="cdZ-PH-spG"/>
-                    <constraint firstItem="VEf-QQ-Cyj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="udX-w3-rae"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="nAt-8o-OiJ" secondAttribute="trailing" constant="-8" id="uoD-Q1-gUW"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="VEf-QQ-Cyj" secondAttribute="trailing" constant="-8" id="xe2-Ea-L4P"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ayG-gG-rf8" secondAttribute="trailing" constant="-8" id="0bW-06-HEy"/>
+                    <constraint firstItem="T3x-v1-YmE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="2Lu-1F-Wtm"/>
+                    <constraint firstItem="T3x-v1-YmE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="42" id="36b-T4-TQa"/>
+                    <constraint firstItem="ayG-gG-rf8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="E5t-Kc-V4M"/>
+                    <constraint firstItem="Y4P-lM-qFi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Uc2-1R-LNw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Y4P-lM-qFi" secondAttribute="trailing" constant="-8" id="VNa-XP-aCe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Y4P-lM-qFi" secondAttribute="bottom" constant="-7" id="aGU-ex-45I"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ClY-GY-aos" secondAttribute="trailing" constant="-8" id="flQ-c4-0wl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="T3x-v1-YmE" secondAttribute="trailing" constant="-8" id="ghF-7q-ZYV"/>
+                    <constraint firstItem="ayG-gG-rf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="k0n-Gh-Ksd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TDq-Jn-Y9U" secondAttribute="trailing" constant="27" id="kLC-rE-4uB"/>
+                    <constraint firstItem="TDq-Jn-Y9U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="60" id="q58-hB-jd4"/>
+                    <constraint firstItem="TDq-Jn-Y9U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="28" id="qf7-F7-vX9"/>
+                    <constraint firstItem="ClY-GY-aos" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="v3k-zs-CGs"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imgOctagon" destination="xsw-uC-SGq" id="D6W-xR-qwm"/>
-                <outlet property="lblComplete" destination="4Zi-ra-ZtN" id="7BH-GG-Xal"/>
-                <outlet property="lblDayName" destination="VEf-QQ-Cyj" id="4TL-Bo-uvc"/>
-                <outlet property="lblDayNumber" destination="nou-hP-ZYj" id="4j4-yJ-LSd"/>
-                <outlet property="lblSchedule" destination="nAt-8o-OiJ" id="YsM-GY-fW1"/>
+                <outlet property="lblComplete" destination="TDq-Jn-Y9U" id="9wa-pn-2li"/>
+                <outlet property="lblDayName" destination="T3x-v1-YmE" id="C36-gh-wmq"/>
+                <outlet property="lblDayNumber" destination="ClY-GY-aos" id="D8G-4E-umg"/>
+                <outlet property="lblSchedule" destination="Y4P-lM-qFi" id="H8s-PJ-48A"/>
             </connections>
-            <point key="canvasLocation" x="535" y="747.5"/>
+            <point key="canvasLocation" x="321" y="798"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="yellowOctagon.png" width="226" height="226"/>
+        <image name="mainCell.png" width="300" height="165"/>
     </resources>
 </document>

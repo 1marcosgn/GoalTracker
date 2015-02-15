@@ -15,43 +15,45 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THIS WEEK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbe-5O-3O1">
-                        <rect key="frame" x="8" y="9" width="70" height="24"/>
+                        <rect key="frame" x="8" y="10" width="70" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="Zkg-o1-Y2K"/>
-                            <constraint firstAttribute="width" constant="70" id="rap-z5-y7c"/>
+                            <constraint firstAttribute="height" constant="24" id="BAU-jF-T6X"/>
+                            <constraint firstAttribute="width" constant="70" id="DoW-1i-sb3"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="yxU-53-BLI">
-                        <rect key="frame" x="2" y="37" width="37" height="32"/>
+                        <rect key="frame" x="13" y="36" width="37" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="32" id="4uI-Xj-obp"/>
-                            <constraint firstAttribute="width" constant="37" id="LQB-wb-0rW"/>
+                            <constraint firstAttribute="height" constant="32" id="4em-Sb-C5w"/>
+                            <constraint firstAttribute="width" constant="37" id="nOJ-nE-3HB"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 activities for this week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1v-Sc-dzP">
-                        <rect key="frame" x="48" y="38" width="264" height="33"/>
+                        <rect key="frame" x="58" y="35" width="246" height="33"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="264" id="XeB-PO-lAX"/>
-                            <constraint firstAttribute="height" constant="33" id="ZQa-eo-sSx"/>
+                            <constraint firstAttribute="height" constant="33" id="Gqj-96-OCw"/>
+                            <constraint firstAttribute="width" constant="246" id="Un4-yc-uuL"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.47000000000000003" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="p1v-Sc-dzP" firstAttribute="top" secondItem="Jbe-5O-3O1" secondAttribute="bottom" constant="5" id="1eU-5V-IYH"/>
-                    <constraint firstItem="yxU-53-BLI" firstAttribute="top" secondItem="Jbe-5O-3O1" secondAttribute="bottom" constant="4" id="LMx-E0-VpA"/>
-                    <constraint firstItem="yxU-53-BLI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="PSE-RU-Poa"/>
-                    <constraint firstItem="Jbe-5O-3O1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="XYz-Ac-W9J"/>
-                    <constraint firstItem="Jbe-5O-3O1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dd6-HP-y0x"/>
-                    <constraint firstItem="p1v-Sc-dzP" firstAttribute="leading" secondItem="yxU-53-BLI" secondAttribute="trailing" constant="9" id="pnf-Hp-bWi"/>
+                    <constraint firstItem="p1v-Sc-dzP" firstAttribute="top" secondItem="Jbe-5O-3O1" secondAttribute="bottom" constant="1" id="47h-AH-E6T"/>
+                    <constraint firstItem="Jbe-5O-3O1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="7H9-ST-XY2"/>
+                    <constraint firstItem="yxU-53-BLI" firstAttribute="top" secondItem="Jbe-5O-3O1" secondAttribute="bottom" constant="2" id="Fbb-yS-1Ck"/>
+                    <constraint firstItem="yxU-53-BLI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Vq0-fY-mi6"/>
+                    <constraint firstItem="p1v-Sc-dzP" firstAttribute="leading" secondItem="yxU-53-BLI" secondAttribute="trailing" constant="8" id="e5e-A2-1R6"/>
+                    <constraint firstItem="Jbe-5O-3O1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="njn-tE-zbH"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="413" y="117"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="413" y="113"/>
         </tableViewCell>
     </objects>
     <resources>

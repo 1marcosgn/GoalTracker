@@ -15,33 +15,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlN-84-eIg">
-                        <rect key="frame" x="8" y="16" width="139" height="26"/>
+                        <rect key="frame" x="14" y="17" width="139" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="26" id="BU3-84-b1B"/>
-                            <constraint firstAttribute="width" constant="139" id="luf-G1-uH8"/>
+                            <constraint firstAttribute="height" constant="26" id="20k-tq-l0n"/>
+                            <constraint firstAttribute="width" constant="139" id="PsL-lm-wUH"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTd-vU-eUV">
-                        <rect key="frame" x="209" y="21" width="103" height="21"/>
+                        <rect key="frame" x="209" y="22" width="103" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="21g-a0-jrf"/>
-                            <constraint firstAttribute="width" constant="103" id="UK4-v0-GPV"/>
+                            <constraint firstAttribute="width" constant="103" id="Fcf-dH-3iZ"/>
+                            <constraint firstAttribute="height" constant="21" id="t6C-es-dhn"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="BlN-84-eIg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="EUE-Ty-J4S"/>
-                    <constraint firstItem="BlN-84-eIg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="SS1-r4-uHa"/>
-                    <constraint firstItem="aTd-vU-eUV" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Wfj-kz-3B2"/>
-                    <constraint firstItem="aTd-vU-eUV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="vmj-9A-orF"/>
+                    <constraint firstItem="aTd-vU-eUV" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="4I5-Ak-QnH"/>
+                    <constraint firstItem="aTd-vU-eUV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="9wg-z6-voG"/>
+                    <constraint firstItem="BlN-84-eIg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="Pp1-EC-10P"/>
+                    <constraint firstItem="BlN-84-eIg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="p74-cJ-utz"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="lblNameDay" destination="BlN-84-eIg" id="b94-nN-IWi"/>
                 <outlet property="lblStatus" destination="aTd-vU-eUV" id="jbL-qB-Bvl"/>

@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="avgFour" rowHeight="119" id="KGk-i7-Jjw" customClass="AverageFourTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="avgFour" rowHeight="119" id="KGk-i7-Jjw" customClass="AverageFourTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -15,46 +15,38 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHALLENGE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIl-BI-5we">
-                        <rect key="frame" x="8" y="8" width="77" height="24"/>
+                        <rect key="frame" x="8" y="9" width="77" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="77" id="rdK-uZ-GBY"/>
-                            <constraint firstAttribute="height" constant="24" id="tTZ-YE-jWo"/>
+                            <constraint firstAttribute="width" constant="77" id="QiK-hA-1AC"/>
+                            <constraint firstAttribute="height" constant="24" id="v9u-eS-rh0"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember to complete at least 5 days in a week" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="OvL-4V-DkY">
-                        <rect key="frame" x="48" y="26" width="246" height="80"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winners are not those who never fail, they are those who never quit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="OvL-4V-DkY">
+                        <rect key="frame" x="8" y="19" width="304" height="89"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="246" id="CST-sW-WsT"/>
-                            <constraint firstAttribute="height" constant="80" id="sA2-Tf-NNf"/>
+                            <constraint firstAttribute="height" constant="89" id="hLS-Oq-IpK"/>
+                            <constraint firstAttribute="width" constant="304" id="pwW-Qs-Rhh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.47000000000000003" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="challenge.png" translatesAutoresizingMaskIntoConstraints="NO" id="xse-ua-5hm">
-                        <rect key="frame" x="8" y="47" width="32" height="28"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="32" id="Hsh-LF-5Hd"/>
-                            <constraint firstAttribute="height" constant="28" id="O8q-Ct-xnU"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xse-ua-5hm" firstAttribute="top" secondItem="XIl-BI-5we" secondAttribute="bottom" constant="15" id="CgZ-dK-aoc"/>
-                    <constraint firstItem="XIl-BI-5we" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ORz-VR-fAX"/>
-                    <constraint firstItem="xse-ua-5hm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="TFA-ZB-2DV"/>
-                    <constraint firstItem="OvL-4V-DkY" firstAttribute="leading" secondItem="xse-ua-5hm" secondAttribute="trailing" constant="8" id="U0T-lb-ZMl"/>
-                    <constraint firstItem="XIl-BI-5we" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="tD1-ru-ddP"/>
-                    <constraint firstItem="OvL-4V-DkY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="18" id="yC0-h1-uZX"/>
+                    <constraint firstItem="XIl-BI-5we" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="1hc-oH-cVZ"/>
+                    <constraint firstAttribute="centerX" secondItem="OvL-4V-DkY" secondAttribute="centerX" id="Gdo-Sw-YNi"/>
+                    <constraint firstAttribute="centerY" secondItem="OvL-4V-DkY" secondAttribute="centerY" constant="-4" id="Tso-RE-wiW"/>
+                    <constraint firstItem="XIl-BI-5we" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cpN-Tf-gAr"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="414" y="190.5"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="lblQoute" destination="OvL-4V-DkY" id="EXp-GD-aB8"/>
+            </connections>
+            <point key="canvasLocation" x="308" y="198.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="challenge.png" width="256" height="256"/>
-    </resources>
 </document>

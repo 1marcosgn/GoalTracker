@@ -20,42 +20,44 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT DAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eby-YF-xnX">
-                        <rect key="frame" x="8" y="8" width="86" height="24"/>
+                        <rect key="frame" x="8" y="9" width="86" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="YNT-jX-4nU"/>
-                            <constraint firstAttribute="width" constant="86" id="jyY-0K-NQ6"/>
+                            <constraint firstAttribute="width" constant="86" id="9Qk-6h-GyZ"/>
+                            <constraint firstAttribute="height" constant="24" id="sdX-Ob-aN3"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendarIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bZy-n2-Ehk">
-                        <rect key="frame" x="2" y="35" width="35" height="35"/>
+                        <rect key="frame" x="13" y="36" width="35" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="35" id="Ksw-Ge-PR7"/>
-                            <constraint firstAttribute="height" constant="35" id="P0f-mT-d3O"/>
+                            <constraint firstAttribute="width" constant="35" id="8On-kl-1qY"/>
+                            <constraint firstAttribute="height" constant="35" id="gNi-m8-wQ6"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-gh-4AX">
-                        <rect key="frame" x="48" y="35" width="246" height="49"/>
+                        <rect key="frame" x="59" y="36" width="246" height="49"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="49" id="V0S-aN-JlN"/>
-                            <constraint firstAttribute="width" constant="246" id="n4k-0G-cZd"/>
+                            <constraint firstAttribute="height" constant="49" id="w1y-ak-v6R"/>
+                            <constraint firstAttribute="width" constant="246" id="zRU-Ue-RDN"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="FMCollegeTeamoutline" family="FM College Team outline" pointSize="55"/>
-                        <color key="textColor" white="0.0" alpha="0.45000000000000001" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="eby-YF-xnX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Bdb-Ja-9hs"/>
-                    <constraint firstItem="zzt-gh-4AX" firstAttribute="top" secondItem="eby-YF-xnX" secondAttribute="bottom" constant="3" id="NMV-i7-UEn"/>
-                    <constraint firstItem="bZy-n2-Ehk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="VjS-Jh-Ek3"/>
-                    <constraint firstItem="bZy-n2-Ehk" firstAttribute="top" secondItem="eby-YF-xnX" secondAttribute="bottom" constant="3" id="d3b-tl-7Gm"/>
-                    <constraint firstItem="eby-YF-xnX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="iCz-6X-J8O"/>
-                    <constraint firstItem="zzt-gh-4AX" firstAttribute="leading" secondItem="bZy-n2-Ehk" secondAttribute="trailing" constant="11" id="zrV-BI-7OK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bZy-n2-Ehk" secondAttribute="bottom" constant="16" id="7fB-mo-MD2"/>
+                    <constraint firstItem="eby-YF-xnX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="BLZ-r2-QKT"/>
+                    <constraint firstItem="zzt-gh-4AX" firstAttribute="leading" secondItem="bZy-n2-Ehk" secondAttribute="trailing" constant="11" id="Opf-G2-gh8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zzt-gh-4AX" secondAttribute="bottom" constant="2" id="Wfw-u7-UX8"/>
+                    <constraint firstItem="eby-YF-xnX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ea9-6g-zjK"/>
+                    <constraint firstItem="bZy-n2-Ehk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="xio-pK-Y7w"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="lblNameDay" destination="zzt-gh-4AX" id="2of-sd-8Kg"/>
             </connections>

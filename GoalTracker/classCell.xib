@@ -26,7 +26,7 @@
                             <constraint firstAttribute="height" constant="47" id="jp5-Eq-EdP"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thB-Rp-sUf">
@@ -53,10 +53,11 @@
                             <constraint firstAttribute="height" constant="21" id="q2D-fn-aU3"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Time-Normal" family="Time" pointSize="18"/>
-                        <color key="textColor" red="0.35686274509803922" green="0.070588235294117646" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="centerX" secondItem="U3U-7h-gRH" secondAttribute="centerX" id="6IR-5l-huR"/>
                     <constraint firstItem="U3U-7h-gRH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="6bf-sh-loa"/>
@@ -69,14 +70,14 @@
                     <constraint firstItem="thB-Rp-sUf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="zKp-2h-keE"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="className" destination="U3U-7h-gRH" id="Jb0-8Q-ONt"/>
                 <outlet property="classSchedule" destination="Jz1-Eq-mbx" id="FQ9-ah-07t"/>
                 <outlet property="completedTag" destination="thB-Rp-sUf" id="NIr-Th-IjK"/>
                 <outlet property="imgCellIcon" destination="hhV-Oz-vwl" id="FGN-s3-on6"/>
             </connections>
-            <point key="canvasLocation" x="357" y="437.5"/>
+            <point key="canvasLocation" x="273" y="326.5"/>
         </tableViewCell>
     </objects>
     <resources>
