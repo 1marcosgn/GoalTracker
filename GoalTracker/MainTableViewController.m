@@ -125,7 +125,6 @@
 
 -(void)clearDb{
     NSDate *today = [NSDate date];
-    NSLog(@"Today date is %@",today);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     
@@ -264,7 +263,6 @@
 
 -(NSString *)getStartandEndofWeek{
     NSDate *today = [NSDate date];
-    NSLog(@"Today date is %@",today);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];// you can use your format.
 

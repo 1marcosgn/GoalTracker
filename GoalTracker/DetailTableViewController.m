@@ -208,8 +208,6 @@
         NSError *error = nil;
         if (![context save:&error]) {
             NSLog(@"error here...");
-        }else{
-            NSLog(@"success");
         }
     }
     else{
@@ -220,8 +218,6 @@
         NSError *error = nil;
         if (![context save:&error]) {
             NSLog(@"error here...");
-        }else{
-            NSLog(@"success");
         }
     }
 }
