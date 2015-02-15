@@ -1,0 +1,110 @@
+/* 
+  Localizable.strings
+  GoalTracker
+
+  Created by Marcos Garcia on 2/15/15.
+  Copyright (c) 2015 Marcos Garcia. All rights reserved.
+*/
+
+//:::::::: Main Table ::::::::
+
+//Weekdays
+"Sunday" = "SUNDAY";
+"Monday" = "MONDAY";
+"Tuesday" = "TUESDAY";
+"Wednesday" = "WEDNESDAY";
+"Thursday" = "THURSDAY";
+"Friday" = "FRIDAY";
+"Saturday" = "SATURDAY";
+
+//Day tag
+"Day" = "Day";
+
+//Footer cell
+"Open from %@ to %@" = "Open from %@ to %@";
+
+//Complete
+"Complete" = "Complete";
+
+//Navigation bar items
+"Reset" = "Reset";
+"Stats" = "Stats";
+
+//Alert Message
+"Delete_LocalDB" = "Are you sure you want to delete your weekly information??";
+"YES" = "YES";
+"NO" = "NO";
+
+
+//:::::::: Schedules View ::::::::
+
+//Back button
+"Back" = "Back";
+
+//Cell tag
+"Completed" = "Completed";
+"No Completed" = "No Completed";
+
+//Action sheet
+"Title_Action" = "Did you finish the activity??";
+"Done_Action" = "I'm Done";
+"NotDone_Action" = "No, I want to continue";
+
+//:::::::: Stats View ::::::::
+
+//Navigation bar items
+"Stats" = "Stats";
+"Average" = "Average";
+
+//Weekdays Lowercase
+"Sunday" = "Sunday";
+"Monday" = "Monday";
+"Tuesday" = "Tuesday";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";
+
+//Cell tag upper case
+"Complete_Upper" = "COMPLETE";
+"NoComplete_Upper" = "NO COMPLETED";
+
+//Cell statistics
+"Week_Activity" = "Week activity";
+"Perspective" = "Perspective";
+"sun" = "S";
+"mond" = "M";
+"tue" = "T";
+"wed" = "W";
+"thu" = "T";
+"fri" = "F";
+"sat" = "S";
+
+//:::::::: Average View ::::::::
+
+//Navigation bar items
+"Average" = "Average";
+
+//Table
+"ACTIVITIES" = "ACTIVITIES";
+"THIS_WEEK" = "THIS WEEK";
+"DAYS_LEFT" = "DAYS LEFT";
+"CURRENT_DAY" = "CURRENT DAY";
+"ACTIVITY_FOR" = "7 activities for this week";
+"CHALLENGE" = "CHALLENGE";
+"Message" = "7 activities for this week";
+
+//QUOTES
+"firs_Quote" = "Winners are not those who never fail, they are those who never quit";
+"second_Quote" = "Limited skills is overcome by unlimited will";
+"third_Quote" = "Boxing is real easy. Life is much harder";
+"four_Quote" = "A champion is someone who stands up when he can't";
+"five_Quote" = "To be a champion you have to believe in yourself when no one else will";
+"six_Quote" = "When life gets tough put on your boxing gloves";
+"seven_Quote" = "Don't quit. Suffer now and live the rest of your life as a champion";
+"eight_Quote" = "You are so much stronger than you think";
+
+
+
+
+

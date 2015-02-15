@@ -27,6 +27,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgSaturday;
 @property (weak, nonatomic) IBOutlet UIView *viewGraphic;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *lblWeek;
+@property (weak, nonatomic) IBOutlet UILabel *lblSunday;
+@property (weak, nonatomic) IBOutlet UILabel *lblMonday;
+@property (weak, nonatomic) IBOutlet UILabel *lblTuesday;
+@property (weak, nonatomic) IBOutlet UILabel *lblWednesday;
+@property (weak, nonatomic) IBOutlet UILabel *lblThursday;
+@property (weak, nonatomic) IBOutlet UILabel *lblFriday;
+@property (weak, nonatomic) IBOutlet UILabel *lblSaturday;
+@property (weak, nonatomic) IBOutlet UILabel *lblPerspective;
+
+
 - (IBAction)shareAction:(id)sender;
 
 @end

@@ -50,16 +50,16 @@
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = @"Stats";
+    label.text = NSLocalizedString(@"Stats", nil);
     self.navigationItem.titleView = label;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     UIColor *topBarColor = [UIColor colorWithRed:169.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     self.navigationController.navigationBar.barTintColor = topBarColor;
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Back", nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     
-    UIBarButtonItem *avgButton = [[UIBarButtonItem alloc]initWithTitle:@"Average" style:UIBarButtonItemStylePlain target:self action:@selector(gotoAverage)];
+    UIBarButtonItem *avgButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Average", nil) style:UIBarButtonItemStylePlain target:self action:@selector(gotoAverage)];
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
@@ -170,12 +170,15 @@
     if (indexPath.row <= 6) {
         //Day cell
         StatsDayTableViewCell *statsDayCell = (StatsDayTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"statsDayCell" forIndexPath:indexPath];
-        statsDayCell.lblNameDay.text = [arrElements objectAtIndex:indexPath.row];
+        statsDayCell.lblNameDay.text = NSLocalizedString([arrElements objectAtIndex:indexPath.row], nil);
         
         if ([[managedGlobal valueForKey:[[arrElements objectAtIndex:indexPath.row] lowercaseString]] isEqualToString:@"complete"]) {
-            statsDayCell.lblStatus.text = @"COMPLETE";
+            statsDayCell.lblStatus.text = NSLocalizedString(@"Complete_Upper", nil);
             [statsDayCell.lblStatus setBackgroundColor:[UIColor blackColor]];
             statsDayCell.lblStatus.textColor = [UIColor whiteColor];
+        }
+        else{
+            statsDayCell.lblStatus.text = NSLocalizedString(@"NoComplete_Upper", nil);
         }
         
         [statsDayCell.lblStatus setFont:[UIFont fontWithName:@"Wagner Modern" size:14.0]];

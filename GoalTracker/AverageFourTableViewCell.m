@@ -11,6 +11,8 @@
 @implementation AverageFourTableViewCell
 
 - (void)awakeFromNib {
+    self.lblChallengeTitle.text = NSLocalizedString(@"CHALLENGE", nil);
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

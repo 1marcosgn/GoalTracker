@@ -30,7 +30,7 @@
     current = 0;
     left = 0;
     
-    arrQuotes = [[NSMutableArray alloc]initWithObjects:@"Winners are not those who never fail, they are those who never quit", @"Limited skills is overcome by unlimited will", @"Boxing is real easy. Life is much harder", @"A champion is someone who stands up when he can't", @"To be a champion you have to believe in yourself when no one else will", @"When life gets tough put on your boxing gloves", @"Don't quit. Suffer now and live the rest of your life as a champion", @"You are so much stronger than you think", nil];
+    arrQuotes = [[NSMutableArray alloc]initWithObjects:@"firs_Quote", @"second_Quote", @"third_Quote", @"four_Quote", @"five_Quote", @"six_Quote", @"seven_Quote", @"eight_Quote", nil];
     
     arrElements = [[NSMutableArray alloc]initWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil];
     
@@ -64,7 +64,7 @@
     UIColor *topBarColor = [UIColor colorWithRed:169.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     self.navigationController.navigationBar.barTintColor = topBarColor;//[UIColor redColor];
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Back", nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
@@ -143,7 +143,7 @@
     }
     else if (indexPath.row == 1){
         AverageSecondTableViewCell *secondCell = (AverageSecondTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"avgSecond" forIndexPath:indexPath];
-        secondCell.lblNameDay.text = [self getCurrentDayName];
+        secondCell.lblNameDay.text = NSLocalizedString([self getCurrentDayName], nil);
         cell = secondCell;
     }
     else if (indexPath.row == 2){
@@ -154,7 +154,11 @@
         AverageFourTableViewCell *fourCell = (AverageFourTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"avgFour" forIndexPath:indexPath];
         fourCell.selectionStyle = UITableViewCellSelectionStyleNone;
         int randNum = rand() % [arrQuotes count];
-        fourCell.lblQoute.text = [arrQuotes objectAtIndex:randNum];
+        
+        
+        fourCell.lblQoute.text = NSLocalizedString([arrQuotes objectAtIndex:randNum], nil);
+        
+        
         cell = fourCell;
     }
     return cell;
