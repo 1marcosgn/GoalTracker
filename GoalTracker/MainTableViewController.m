@@ -119,7 +119,7 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-        [self clearDb];
+        [self deleteLocalData];
     }
 }
 
@@ -150,8 +150,7 @@
     NSString *stringFromDate2 = [dateFormat_End stringFromDate:weekEndPrev];
     
     if ([stringFromDate1 isEqualToString:stringFromDate2]) {
-#warning uncomment this line
-        //[self deleteLocalData];
+        [self deleteLocalData];
     }
 }
 

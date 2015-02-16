@@ -1,0 +1,104 @@
+/* 
+  Localizable.strings
+  GoalTracker
+
+  Created by Marcos Garcia on 2/15/15.
+  Copyright (c) 2015 Marcos Garcia. All rights reserved.
+*/
+
+//:::::::: Main Table ::::::::
+
+//Weekdays
+"Sunday" = "DOMINGO";
+"Monday" = "LUNES";
+"Tuesday" = "MARTES";
+"Wednesday" = "MIERCOLES";
+"Thursday" = "JUEVES";
+"Friday" = "VIERNES";
+"Saturday" = "SABADO";
+
+//Day tag
+"Day" = "Día";
+
+//Footer cell
+"Open from %@ to %@" = "Abierto de %@ a %@";
+
+//Complete
+"Complete" = "Completo";
+
+//Navigation bar items
+"Reset" = "Reiniciar";
+"Stats" = "Estadísticas";
+
+//Alert Message
+"Delete_LocalDB" = "Seguro que desea eliminar su información semanal??";
+"YES" = "SI";
+"NO" = "NO";
+
+
+//:::::::: Schedules View ::::::::
+
+//Back button
+"Back" = "Atrás";
+
+//Cell tag
+"Completed" = "Completo";
+"No Completed" = "No Completo";
+
+//Action sheet
+"Title_Action" = "Finalizaste tu actividad??";
+"Done_Action" = "Si, he terminado";
+"NotDone_Action" = "No, quiero continuar";
+
+//:::::::: Stats View ::::::::
+
+//Navigation bar items
+"Average" = "Promedio";
+
+//Weekdays Lowercase
+"Sunday" = "Domingo";
+"Monday" = "Lunes";
+"Tuesday" = "Martes";
+"Wednesday" = "Miércoles";
+"Thursday" = "Jueves";
+"Friday" = "Viernes";
+"Saturday" = "Sábado";
+
+//Cell tag upper case
+"Complete_Upper" = "COMPLETO";
+"NoComplete_Upper" = "NO COMPLETADO";
+
+//Cell statistics
+"Week_Activity" = "Esta semana";
+"Perspective" = "Perspectiva";
+"sun" = "D";
+"mond" = "L";
+"tue" = "M";
+"wed" = "M";
+"thu" = "J";
+"fri" = "V";
+"sat" = "S";
+
+//:::::::: Average View ::::::::
+
+//Table
+"ACTIVITIES" = "ACTIVIDADES";
+"THIS_WEEK" = "ESTA SEMANA";
+"DAYS_LEFT" = "RESTANTES";
+"CURRENT_DAY" = "ACTUALES";
+"ACTIVITY_FOR" = "7 actividades para esta semana";
+"CHALLENGE" = "RETO";
+"Message" = "7 actividades para esta semana";
+
+//QUOTES
+"firs_Quote" = "Ganadores no son aquellos que nunca fallan, son quienes nunca se rinden";
+"second_Quote" = "Habilidades limitadas se superan con voluntad ilimitada";
+"third_Quote" = "Boxear es realmente fácil. La vida es mucho mas difícil";
+"four_Quote" = "Un campeón es alguien que se mantiene en pie cuando ya no puede";
+"five_Quote" = "Para ser un campeón debes creer en ti mismo cuando nadie mas lo hace";
+"six_Quote" = "Cuando la vida golpea, ponte tus guantes de box";
+"seven_Quote" = "No te rindas. Sufre ahora y vive el resto de tu vida como un campeón";
+"eight_Quote" = "Tu eres mas fuerte de lo que piensas";
+
+
+
