@@ -10,6 +10,8 @@
 
 @interface AverageFourTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *lblChallengeTitle;
+
 @property (weak, nonatomic) IBOutlet UILabel *lblQoute;
 
 @end

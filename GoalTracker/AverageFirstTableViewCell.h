@@ -13,4 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrentDays;
 @property (weak, nonatomic) IBOutlet UILabel *lblRestDays;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblActivities;
+@property (weak, nonatomic) IBOutlet UILabel *lblThisWeek;
+@property (weak, nonatomic) IBOutlet UILabel *lblDaysLeft;
+
+
 @end

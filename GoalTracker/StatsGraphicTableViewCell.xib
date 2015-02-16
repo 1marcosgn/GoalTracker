@@ -142,9 +142,18 @@
                 <outlet property="imgThursday" destination="f6I-Gw-5SU" id="gsE-Xr-wpW"/>
                 <outlet property="imgTuesday" destination="UO0-WH-GjP" id="yLQ-K1-Qdt"/>
                 <outlet property="imgWednesday" destination="SdU-8C-EuZ" id="ObY-6O-TMX"/>
+                <outlet property="lblFriday" destination="0jy-rQ-8IS" id="cEp-Fz-las"/>
+                <outlet property="lblMonday" destination="bX4-Hn-8YP" id="RSk-vD-dGr"/>
+                <outlet property="lblPerspective" destination="Ta2-Af-cAY" id="ycK-n6-kgi"/>
+                <outlet property="lblSaturday" destination="3C5-Tf-kE5" id="xS4-jw-5L6"/>
+                <outlet property="lblSunday" destination="oxQ-be-aBh" id="cSk-tu-hMJ"/>
+                <outlet property="lblThursday" destination="vWp-lx-1xx" id="J9M-jF-S9S"/>
+                <outlet property="lblTuesday" destination="ywx-kj-cDE" id="Mdz-9g-o2E"/>
+                <outlet property="lblWednesday" destination="1kA-B1-e06" id="cPf-b8-Dep"/>
+                <outlet property="lblWeek" destination="sPm-ds-yg5" id="XMO-JN-JMg"/>
                 <outlet property="viewGraphic" destination="anY-k6-39L" id="ouK-Rz-n3T"/>
             </connections>
-            <point key="canvasLocation" x="375" y="295.5"/>
+            <point key="canvasLocation" x="53" y="287.5"/>
         </tableViewCell>
     </objects>
     <resources>

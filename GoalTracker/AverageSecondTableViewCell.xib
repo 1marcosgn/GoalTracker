@@ -59,6 +59,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="lblCurrent" destination="eby-YF-xnX" id="2LG-pI-L7H"/>
                 <outlet property="lblNameDay" destination="zzt-gh-4AX" id="2of-sd-8Kg"/>
             </connections>
             <point key="canvasLocation" x="414" y="216"/>

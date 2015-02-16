@@ -23,8 +23,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"classCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellClass"];
     
     if (self.dayIdentifier != [self getNumberofWeek]) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"You can't complete any activity for this day because is not the current day" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
+        //UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"You can't complete any activity for this day because is not the current day" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        //[alert show];
     }
     [self setViewItems];
 }
@@ -48,14 +48,14 @@
     label.font = [UIFont fontWithName:@"FM College Team" size:35];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = [self.nameDay uppercaseString];
+    label.text = NSLocalizedString(self.nameDay, nil);
     self.navigationItem.titleView = label;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     UIColor *topBarColor = [UIColor colorWithRed:169.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     self.navigationController.navigationBar.barTintColor = topBarColor;
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Back", nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
@@ -121,7 +121,7 @@
     diccTmpClass = [self.arrClasses objectAtIndex:[indexPath row]];
     cell.className.text = [diccTmpClass valueForKey:@"class_name"];
     cell.classSchedule.text = [diccTmpClass valueForKey:@"class_schedule"];
-    cell.completedTag.text = [self.activitiesCompletedModel objectAtIndex:indexPath.row];
+    cell.completedTag.text = NSLocalizedString([self.activitiesCompletedModel objectAtIndex:indexPath.row], nil);
     
     //Tag color...
     if ([cell.completedTag.text isEqualToString:@"Completed"]) {
@@ -161,9 +161,9 @@
 }
 
 -(void)showActionSheet{
-    NSString *actionTitle = @"Did you finish the activity??";
-    NSString *doneButton = @"I'm Done";
-    NSString *cancelButton = @"No, I want to continue";
+    NSString *actionTitle = NSLocalizedString(@"Title_Action", nil);
+    NSString *doneButton = NSLocalizedString(@"Done_Action", nil);
+    NSString *cancelButton = NSLocalizedString(@"NotDone_Action", nil);
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:actionTitle delegate:self cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:doneButton, nil];
     [actionSheet showInView:self.view];
 }
@@ -208,8 +208,6 @@
         NSError *error = nil;
         if (![context save:&error]) {
             NSLog(@"error here...");
-        }else{
-            NSLog(@"success");
         }
     }
     else{
@@ -220,8 +218,6 @@
         NSError *error = nil;
         if (![context save:&error]) {
             NSLog(@"error here...");
-        }else{
-            NSLog(@"success");
         }
     }
 }

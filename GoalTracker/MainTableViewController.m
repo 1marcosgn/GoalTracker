@@ -97,7 +97,7 @@
     
     UIColor *topBarColor = [UIColor colorWithRed:169.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
     self.navigationController.navigationBar.barTintColor = topBarColor;
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Stats" style:UIBarButtonItemStylePlain target:self action:@selector(goToStadistics)];
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Stats", nil) style:UIBarButtonItemStylePlain target:self action:@selector(goToStadistics)];
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FM College Team" size:30], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
@@ -106,26 +106,25 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"weekDaysCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"weekday"];
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(gotoClear)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Reset", nil) style:UIBarButtonItemStylePlain target:self action:@selector(gotoClear)];
     
     [cancelButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = cancelButton;
 }
 
 -(void)gotoClear{
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"Are you sure you want to delete your weekly information??" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:NSLocalizedString(@"Delete_LocalDB", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"NO", nil) otherButtonTitles:NSLocalizedString(@"YES", nil), nil];
     [alert show];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-        [self clearDb];
+        [self deleteLocalData];
     }
 }
 
 -(void)clearDb{
     NSDate *today = [NSDate date];
-    NSLog(@"Today date is %@",today);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     
@@ -151,8 +150,7 @@
     NSString *stringFromDate2 = [dateFormat_End stringFromDate:weekEndPrev];
     
     if ([stringFromDate1 isEqualToString:stringFromDate2]) {
-#warning uncomment this line
-        //[self deleteLocalData];
+        [self deleteLocalData];
     }
 }
 
@@ -219,11 +217,17 @@
     // Configure the cell...
     UITableViewCell *cell;
     weekDaysCell *theCell = (weekDaysCell *) [tableView dequeueReusableCellWithIdentifier:@"weekday" forIndexPath:indexPath];
-    theCell.lblDayName.text = [dictionaryTemporal valueForKey:@"day_name"]; // <-- Localize this string
-    theCell.lblDayNumber.text = [NSString stringWithFormat:@"Day #%ld.", indexPath.row + 1];
+    //theCell.lblDayName.text = [dictionaryTemporal valueForKey:@"day_name"]; // <-- Localize this string
+
+    theCell.lblDayName.text = NSLocalizedString([dictionaryTemporal valueForKey:@"day_name"], nil);
+    
+    theCell.lblDayNumber.text = [NSString stringWithFormat:@"%@ #%ld.", NSLocalizedString(@"Day", nil), indexPath.row + 1];
     theCell.lblDayNumber.layer.cornerRadius = 2.0;
     theCell.lblDayNumber.layer.masksToBounds = YES;
-    theCell.lblSchedule.text = [NSString stringWithFormat:@"Open from %@ to %@", [dictionaryTemporal valueForKey:@"open_time"], [dictionaryTemporal valueForKey:@"close_time"]];
+    
+    //theCell.lblSchedule.text = [NSString stringWithFormat:@"Open from %@ to %@", [dictionaryTemporal valueForKey:@"open_time"], [dictionaryTemporal valueForKey:@"close_time"]];
+    
+    theCell.lblSchedule.text = [NSString stringWithFormat:NSLocalizedString(@"Open from %@ to %@", nil), [dictionaryTemporal valueForKey:@"open_time"], [dictionaryTemporal valueForKey:@"close_time"]];
     
     //Cell color
     if (indexPath.row + 1 == [self getNumberofWeek]) {
@@ -240,7 +244,7 @@
     
     if ([[managedGlobal valueForKey:nameday_] isEqualToString:@"complete"]) {
         theCell.lblComplete.transform = CGAffineTransformMakeRotation(M_PI / -4);
-        [theCell.lblComplete setText:@"COMPLETE"];
+        [theCell.lblComplete setText:NSLocalizedString(@"Complete", nil)];
         [theCell.imgOctagon setImage:[UIImage imageNamed:@"greenOctagon.png"]];
     }
     else{
@@ -264,7 +268,6 @@
 
 -(NSString *)getStartandEndofWeek{
     NSDate *today = [NSDate date];
-    NSLog(@"Today date is %@",today);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];// you can use your format.
 

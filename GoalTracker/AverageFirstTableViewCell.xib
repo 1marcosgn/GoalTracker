@@ -85,8 +85,11 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="lblActivities" destination="MCo-e5-kWc" id="JpH-E1-KF1"/>
                 <outlet property="lblCurrentDays" destination="ALu-TD-A94" id="snp-YF-Xr3"/>
+                <outlet property="lblDaysLeft" destination="ZJt-bS-93x" id="0BD-TT-jR4"/>
                 <outlet property="lblRestDays" destination="UYM-bO-O01" id="MdG-sV-AIV"/>
+                <outlet property="lblThisWeek" destination="e0U-pV-JPh" id="CcM-Uo-QBx"/>
             </connections>
             <point key="canvasLocation" x="576" y="195.5"/>
         </tableViewCell>

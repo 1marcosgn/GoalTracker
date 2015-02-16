@@ -53,6 +53,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="lblMessage" destination="p1v-Sc-dzP" id="A6l-kU-OPb"/>
+                <outlet property="lblThisWeek" destination="Jbe-5O-3O1" id="pZN-XE-CHq"/>
+            </connections>
             <point key="canvasLocation" x="413" y="113"/>
         </tableViewCell>
     </objects>

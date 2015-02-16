@@ -44,9 +44,10 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="lblChallengeTitle" destination="OvL-4V-DkY" id="D6H-gg-obe"/>
                 <outlet property="lblQoute" destination="OvL-4V-DkY" id="EXp-GD-aB8"/>
             </connections>
-            <point key="canvasLocation" x="308" y="198.5"/>
+            <point key="canvasLocation" x="270" y="189.5"/>
         </tableViewCell>
     </objects>
 </document>
