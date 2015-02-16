@@ -67,6 +67,7 @@
 		7F57E3AD1A875EF000485AF2 /* AverageFourTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3AB1A875EF000485AF2 /* AverageFourTableViewCell.xib */; };
 		7F57E3B01A875FB200485AF2 /* challenge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3AE1A875FB200485AF2 /* challenge.png */; };
 		7F57E3B11A875FB200485AF2 /* challenge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F57E3AF1A875FB200485AF2 /* challenge@2x.png */; };
+		7F7845BC1A9179B300DCED37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F7845BB1A9179B300DCED37 /* Localizable.strings */; };
 		7F9A8A531A83582B00C5CB05 /* WeekInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A8A521A83582B00C5CB05 /* WeekInfo.m */; };
 		7FE009291A7DABB50057BF0A /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE009271A7DABB50057BF0A /* BlockViewController.m */; };
 		7FE0092A1A7DABB50057BF0A /* BlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FE009281A7DABB50057BF0A /* BlockViewController.xib */; };
@@ -161,6 +162,7 @@
 		7F57E3AB1A875EF000485AF2 /* AverageFourTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageFourTableViewCell.xib; sourceTree = "<group>"; };
 		7F57E3AE1A875FB200485AF2 /* challenge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = challenge.png; sourceTree = "<group>"; };
 		7F57E3AF1A875FB200485AF2 /* challenge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "challenge@2x.png"; sourceTree = "<group>"; };
+		7F7845BB1A9179B300DCED37 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7F9A8A511A83582B00C5CB05 /* WeekInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekInfo.h; sourceTree = "<group>"; };
 		7F9A8A521A83582B00C5CB05 /* WeekInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekInfo.m; sourceTree = "<group>"; };
 		7FE009261A7DABB50057BF0A /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		538D36F51A7AC20900EAD83D = {
 			isa = PBXGroup;
 			children = (
+				7F7845BB1A9179B300DCED37 /* Localizable.strings */,
 				538D37001A7AC20900EAD83D /* GoalTracker */,
 				538D371D1A7AC20900EAD83D /* GoalTrackerTests */,
 				538D36FF1A7AC20900EAD83D /* Products */,
@@ -492,6 +495,7 @@
 				7F57E3A01A875C2800485AF2 /* AverageThirdTableViewCell.xib in Resources */,
 				7F4AAB011A8D6DDF003228AF /* backMainCell@2x.png in Resources */,
 				7F57E3971A8758E800485AF2 /* AverageSecondTableViewCell.xib in Resources */,
+				7F7845BC1A9179B300DCED37 /* Localizable.strings in Resources */,
 				7F4AAB041A8D6FFD003228AF /* mainCell@2x.png in Resources */,
 				7F3F4DF91A8603CD000D5BED /* StatsGraphicTableViewCell.xib in Resources */,
 				7F57E3AD1A875EF000485AF2 /* AverageFourTableViewCell.xib in Resources */,

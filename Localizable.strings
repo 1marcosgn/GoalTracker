@@ -1,5 +1,5 @@
 /* 
-  LocalizedStrings.strings
+  Localizable.strings
   GoalTracker
 
   Created by Marcos Garcia on 2/15/15.
@@ -103,3 +103,4 @@
 "six_Quote" = "When life gets tough put on your boxing gloves";
 "seven_Quote" = "Don't quit. Suffer now and live the rest of your life as a champion";
 "eight_Quote" = "You are so much stronger than you think";
+
