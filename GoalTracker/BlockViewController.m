@@ -71,8 +71,14 @@
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     [self finish];
-    [delegate connectionFinish:nil succes:NO serviceName:webServiceName];
-    [self errorAlert:@"Connection failure" :@"Please try again."];
+    
+    //Get schedules from a file (ufc_json_test.json)
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ufc_json_test" ofType:@"json"];
+    NSString *jsonString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    [delegate connectionFinish:json succes:YES serviceName:webServiceName];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{

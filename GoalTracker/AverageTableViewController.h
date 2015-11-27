@@ -10,6 +10,4 @@
 
 @interface AverageTableViewController : UITableViewController
 
-
-
 @end

@@ -10,14 +10,14 @@
 
 @implementation AverageThirdTableViewCell
 
-- (void)awakeFromNib {
-    
+- (void)awakeFromNib
+{
     self.lblThisWeek.text = NSLocalizedString(@"THIS_WEEK", nil);
     self.lblMessage.text = NSLocalizedString(@"Message", nil);
-    
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 }
 

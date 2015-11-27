@@ -376,6 +376,7 @@
 }
 
 -(void)someTroubles{
+    
     UIView *backView = [[UIView alloc]initWithFrame:self.tableView.frame];
     [backView setBackgroundColor:[UIColor whiteColor]];
     UIImageView *imageBlank = [[UIImageView alloc]initWithFrame:CGRectMake(142, 212, 76, 76)];

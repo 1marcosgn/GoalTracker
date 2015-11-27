@@ -13,5 +13,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblThisWeek;
 @property (weak, nonatomic) IBOutlet UILabel *lblMessage;
 
-
 @end

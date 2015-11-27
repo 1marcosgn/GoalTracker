@@ -11,7 +11,8 @@
 #import <Social/Social.h>
 #import "AverageTableViewController.h"
 
-@interface StatsTableViewController (){
+@interface StatsTableViewController ()
+{
     NSMutableArray *arrElements;
     NSMutableArray *modelDaysCompleted;
     NSManagedObject *managedGlobal;
@@ -22,7 +23,8 @@
 
 @implementation StatsTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     modelDaysCompleted = [[NSMutableArray alloc]initWithCapacity:7];
@@ -32,17 +34,17 @@
     arrElements = [[NSMutableArray alloc]initWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Perspective", nil];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"StatsDayTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"statsDayCell"];
-
     [self.tableView registerNib:[UINib nibWithNibName:@"StatsGraphicTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"perspectiveCell"];
-
     [self setViewItems];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 
--(void)setViewItems{
+-(void)setViewItems
+{
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"statsBackGrnd.png"]];
     CGRect frame = CGRectMake(0, 0, 70, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
@@ -70,7 +72,8 @@
     [self getValues];
 }
 
--(NSManagedObjectContext *)managedObjectContext{
+-(NSManagedObjectContext *)managedObjectContext
+{
     NSManagedObjectContext *context;
     id delegate = [[UIApplication sharedApplication]delegate];
     if ([delegate performSelector:@selector(managedObjectContext)]) {
@@ -79,29 +82,34 @@
     return context;
 }
 
--(void)getValues{
+-(void)getValues
+{
     //Fetch the information
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"WeekInfo"];
     NSMutableArray *arrDevices = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy];
     
-    if ([arrDevices count] > 0) {
+    if ([arrDevices count] > 0)
+    {
         NSManagedObject *device = [arrDevices objectAtIndex:0];
         managedGlobal = device;
     }
 }
 
--(void)gotoAverage{
+-(void)gotoAverage
+{
     AverageTableViewController *averageView = [[AverageTableViewController alloc]initWithNibName:@"AverageTableViewController" bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:averageView];
     [self presentViewController:navController animated:YES completion:nil];
 }
 
--(void)dismiss{
+-(void)dismiss
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)shareWeekActivity:(UIImage *)imageShare{
+-(void)shareWeekActivity:(UIImage *)imageShare
+{
     imageGlobal = imageShare;
     NSString *actionSheetTitle = @"Share";
     NSString *twitter = @"Twitter";

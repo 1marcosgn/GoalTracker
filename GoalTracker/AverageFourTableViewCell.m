@@ -10,12 +10,13 @@
 
 @implementation AverageFourTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     self.lblChallengeTitle.text = NSLocalizedString(@"CHALLENGE", nil);
-    
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 }
 

@@ -13,7 +13,8 @@
 #import "AverageFourTableViewCell.h"
 #import <CoreData/CoreData.h>
 
-@interface AverageTableViewController (){
+@interface AverageTableViewController ()
+{
     NSManagedObject *managedGlobal;
     NSMutableArray *arrElements;
     int current, left;
@@ -25,7 +26,8 @@
 
 @implementation AverageTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     current = 0;
     left = 0;
@@ -50,7 +52,8 @@
     [self setViewItems];
 }
 
--(void)setViewItems{
+-(void)setViewItems
+{
     CGRect frame = CGRectMake(0, 0, 70, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
@@ -74,7 +77,8 @@
     [self setCurrentandLeftDays];
 }
 
--(NSString *)getCurrentDayName{
+-(NSString *)getCurrentDayName
+{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyyMMdd";
     NSDate *date = [NSDate date];
@@ -83,7 +87,8 @@
     return  dayString;
 }
 
--(void)getValues{
+-(void)getValues
+{
     //Fetch the information
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"WeekInfo"];
@@ -94,7 +99,8 @@
     }
 }
 
--(NSManagedObjectContext *)managedObjectContext{
+-(NSManagedObjectContext *)managedObjectContext
+{
     NSManagedObjectContext *context;
     id delegate = [[UIApplication sharedApplication]delegate];
     if ([delegate performSelector:@selector(managedObjectContext)]) {
@@ -103,11 +109,13 @@
     return context;
 }
 
--(void)dismiss{
+-(void)dismiss
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)setCurrentandLeftDays{
+-(void)setCurrentandLeftDays
+{
     for (int i = 0; i < [arrElements count]; i++) {
         if ([[managedGlobal valueForKey:[arrElements objectAtIndex:i]] isEqualToString:@"complete"]) {
             current = current + 1;
@@ -118,70 +126,80 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     // Return the number of rows in the section.
     return 4;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell;
-    if (indexPath.row == 0) {
+    if (indexPath.row == 0)
+    {
         AverageFirstTableViewCell *firstCell = (AverageFirstTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"avgFirst" forIndexPath:indexPath];
         firstCell.lblCurrentDays.text = [NSString stringWithFormat:@"%d", current];
         firstCell.lblRestDays.text = [NSString stringWithFormat:@"%d", left];
         cell = firstCell;
     }
-    else if (indexPath.row == 1){
+    else if (indexPath.row == 1)
+    {
         AverageSecondTableViewCell *secondCell = (AverageSecondTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"avgSecond" forIndexPath:indexPath];
         secondCell.lblNameDay.text = NSLocalizedString([self getCurrentDayName], nil);
         cell = secondCell;
     }
-    else if (indexPath.row == 2){
+    else if (indexPath.row == 2)
+    {
         AverageThirdTableViewCell *thirdCell = (AverageThirdTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"avgThird" forIndexPath:indexPath];
         cell = thirdCell;
     }
-    else if (indexPath.row == 3){
+    else if (indexPath.row == 3)
+    {
         AverageFourTableViewCell *fourCell = (AverageFourTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"avgFour" forIndexPath:indexPath];
         fourCell.selectionStyle = UITableViewCellSelectionStyleNone;
         int randNum = rand() % [arrQuotes count];
-        
-        
         fourCell.lblQoute.text = NSLocalizedString([arrQuotes objectAtIndex:randNum], nil);
-        
-        
         cell = fourCell;
     }
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     float size = 0.0;
-    if (indexPath.row == 0) {
+    if (indexPath.row == 0)
+    {
         size = 119.0;
     }
-    else if (indexPath.row == 1){
+    else if (indexPath.row == 1)
+    {
         size = 96.0;
     }
-    else if (indexPath.row == 2){
+    else if (indexPath.row == 2)
+    {
         size = 96.0;
     }
-    else if (indexPath.row == 3){
+    else if (indexPath.row == 3)
+    {
         size = 119.0;
     }
     return size;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
     [headerView setBackgroundColor:[UIColor blackColor]];
     imgChallenge = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"octag.png"]];
@@ -192,13 +210,15 @@
     return headerView;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return 185.0;
 }
 
 #pragma mark - Scrolling
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    float scale = 1.0f + fabsf(scrollView.contentOffset.y) / scrollView.frame.size.height;
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    float scale = 1.0f + fabs(scrollView.contentOffset.y) / scrollView.frame.size.height;
     scale = MAX(0.0f, scale);
     imgChallenge.transform = CGAffineTransformMakeScale(scale, scale);
     imgFront.transform = CGAffineTransformMakeScale(scale, scale);

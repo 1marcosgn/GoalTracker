@@ -10,14 +10,13 @@
 
 @implementation AverageSecondTableViewCell
 
-- (void)awakeFromNib {
-    
+- (void)awakeFromNib
+{
     self.lblCurrent.text = NSLocalizedString(@"CURRENT_DAY", nil);
-    
-    
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 }
 

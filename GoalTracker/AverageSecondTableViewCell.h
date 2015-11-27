@@ -13,5 +13,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblNameDay;
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrent;
 
-
 @end

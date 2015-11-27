@@ -1,0 +1,299 @@
+{
+	"sunday":{
+		"day_name": "Sunday",
+		"open_time":"10:30am",
+		"close_time":"12:45am",
+		"classes":[
+			{
+				"class_name":"Boxing",
+				"class_schedule":"10:30 AM - 11:30 AM",
+				"class_position": 0
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"11:45 AM - 12:45 PM",
+				"class_position": 1
+			}
+		]
+	},
+
+	"monday":{
+		"day_name": "Monday",
+		"open_time":"06:30am",
+		"close_time":"08:45pm",
+		"classes":[
+			{
+				"class_name":"Boxing",
+				"class_schedule":"6:30 AM - 7:30 AM",
+				"class_position": 0
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"9:30 AM - 10:30 AM",
+				"class_position": 1
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"12:15 PM - 1:15 PM",
+				"class_position": 2
+			},
+			{
+				"class_name":"Kids Class",
+				"class_schedule":"4:15 PM - 5:00 PM",
+				"class_position": 3
+			},
+			{
+				"class_name":"*NEW* DAILY ULTIMATE TRAINING - (DUT)",
+				"class_schedule":"5:15 PM - 6:15 PM",
+				"class_position": 4
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"5:15 PM - 6:15 PM",
+				"class_position": 5
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"6:30 PM - 7:30 PM",
+				"class_position": 6
+			},
+			{
+				"class_name":"Advanced Training - MUAY THAI",
+				"class_schedule":"7:00 PM - 8:00 PM",
+				"class_position": 7
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"7:45 PM - 8:45 PM",
+				"class_position": 8
+			}
+		]
+	},
+
+	"tuesday":{
+		"day_name": "Tuesday",
+		"open_time":"06:30am",
+		"close_time":"08:45pm",
+		"classes":[
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"6:30 AM - 7:30 AM",
+				"class_position": 0
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"9:30 AM - 10:30 AM",
+				"class_position": 1
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"12:15 PM - 1:15 PM",
+				"class_position": 2
+			},
+			{
+				"class_name":"Kids Class",
+				"class_schedule":"4:15 PM - 5:00 PM",
+				"class_position": 3
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"5:15 PM - 6:15 PM",
+				"class_position": 4
+			},
+			{
+				"class_name":"*NEW* DAILY ULTIMATE TRAINING - (DUT)",
+				"class_schedule":"5:15 PM - 6:15 PM",
+				"class_position": 5
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"6:30 PM - 7:30 PM",
+				"class_position": 6
+			},
+			{
+				"class_name":"Advanced Training - BJJ",
+				"class_schedule":"7:00 PM - 8:00 PM",
+				"class_position": 7
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"7:45 PM - 8:45 PM",
+				"class_position": 8
+			}
+		]
+	},
+
+	"wednesday":{
+		"day_name": "Wednesday",
+		"open_time":"06:30am",
+		"close_time":"08:45pm",
+		"classes":[
+			{
+				"class_name":"Boxing",
+				"class_schedule":"6:30 AM - 7:30 AM",
+				"class_position": 0
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"9:30 AM - 10:30 AM",
+				"class_position": 1
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"12:15 PM - 1:15 PM",
+				"class_position": 2
+			},
+			{
+				"class_name":"Kids Class",
+				"class_schedule":"4:15 PM - 5:00 PM",
+				"class_position": 3
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"5:15 PM - 6:15 PM",
+				"class_position": 4
+			},
+			{
+				"class_name":"*NEW* DAILY ULTIMATE TRAINING - (DUT)",
+				"class_schedule":"5:15 PM - 6:15 PM",
+				"class_position": 5
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"6:30 PM - 7:30 PM",
+				"class_position": 6
+			},
+			{
+				"class_name":"Advanced Training - MMA",
+				"class_schedule":"7:00 PM - 8:00 PM",
+				"class_position": 7
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"7:45 PM - 8:45 PM",
+				"class_position": 8
+			}
+		]
+	},
+
+	"thursday":{
+		"day_name": "Thursday",
+		"open_time":"06:30am",
+		"close_time":"08:45pm",
+		"classes":[
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"6:30 AM - 7:30 AM",
+				"class_position": 0
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"9:30 AM - 10:30 AM",
+				"class_position": 1
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"12:15 PM - 1:15 PM",
+				"class_position": 2
+			},
+			{
+				"class_name":"Kids Class",
+				"class_schedule":"4:15 PM - 5:00 PM",
+				"class_position": 3
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"5:15 PM - 6:15 PM",
+				"class_position": 4
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"6:30 PM - 7:30 PM",
+				"class_position": 5
+			},
+			{
+				"class_name":"Advanced Training - BJJ",
+				"class_schedule":"7:00 PM - 8:00 PM",
+				"class_position": 6
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"7:45 PM - 8:45 PM",
+				"class_position": 7
+			}
+		]
+	},
+
+	"friday":{
+		"day_name": "Friday",
+		"open_time":"06:30am",
+		"close_time":"07:30pm",
+		"classes":[
+			{
+				"class_name":"Boxing",
+				"class_schedule":"6:30 AM - 7:30 AM",
+				"class_position": 0
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"9:30 AM - 10:30 AM",
+				"class_position": 1
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"12:15 PM - 1:15 PM",
+				"class_position": 2
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"5:15 PM - 6:15 PM",
+				"class_position": 3
+			},
+			{
+				"class_name":"Advanced Training - MUAY THAI",
+				"class_schedule":"6:30 PM - 7:30 PM",
+				"class_position": 4
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"6:30 PM - 7:30 PM",
+				"class_position": 5
+			}
+		]
+	},
+
+	"saturday":{
+		"day_name": "Saturday",
+		"open_time":"08:30am",
+		"close_time":"03:30pm",
+		"classes":[
+			{
+				"class_name":"Boxing",
+				"class_schedule":"8:30 AM - 9:30 AM",
+				"class_position": 0
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"10:00 AM - 11:00 AM",
+				"class_position": 1
+			},
+			{
+				"class_name":"Boxing",
+				"class_schedule":"11:15 AM - 12:15 PM",
+				"class_position": 2
+			},
+			{
+				"class_name":"*NEW* MATRX",
+				"class_schedule":"12:30 PM - 1:30 PM",
+				"class_position": 3
+			},
+			{
+				"class_name":"Kickboxing",
+				"class_schedule":"2:30 PM - 3:30 PM",
+				"class_position": 4
+			}
+		]
+	}
+}
+
+
